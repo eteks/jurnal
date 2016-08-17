@@ -1,0 +1,159 @@
+/*
+Theme Name: Journal
+Theme URI: http://wordpress.org/themes/twentythirteen
+Author: the WordPress team
+Author URI: http://wordpress.org/
+Description: The 2013 theme for WordPress takes us back to the blog, featuring a full range of post formats, each displayed beautifully in their own unique way. Design details abound, starting with a vibrant color scheme and matching header images, beautiful typography and icons, and a flexible layout that looks great on any device, big or small.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, brown, orange, tan, white, yellow, light, one-column, two-columns, right-sidebar, flexible-width, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready
+Text Domain: twentythirteen
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/* reusable css */
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.clearfix{
+	clear: both;
+}
+.no_pad{
+	padding: 0px;
+}
+/* top-header*/
+header{
+	background-color: #614a42;
+	color: #ffffff;
+}
+.navbar-default {
+    background-color: #614a42 !important;
+    border-color: #614a42 !important;
+}
+.navbar {
+    border-radius: 4px;
+}
+.navbar-collapse h3{
+	font-weight: bold;
+	word-spacing: 8px;
+}
+.nav a{
+	color: #ffffff;
+	font-family: Roboto;
+	font-size: 18px;
+}
+.nav a:hover{
+	color: #614a42 !important;
+}
+/* sub-header */
+#sub-header {
+    background: #e4e3de none repeat scroll 0 0;
+}    
+.title2{
+	text-align: center;
+	margin: 20px auto;
+}
+.title2 p{
+	font-family: Roboto;
+	font-size: 21px;
+	width: 455px;
+}
+/* frame */
+#body_section {
+	background-color: #e4e3e3;
+	width: 100%;
+	/*height: 100%;*/
+	/*position: absolute;*/
+}
+#frame {
+	left: 0px;
+    position: relative;
+    top: 0px;
+	height: 1110px;
+	width: 100%; 
+	background: rgba(0,0,0,0) url(images/frame1.png) no-repeat scroll center;
+}
+.frame_text{
+	position: relative;
+ }
+h1,.frame_footer{
+	text-align: center;
+}
+.frame_title{
+	font-family: Times New Roman;
+	font-size: 48px;
+	color: #755e58;
+	font-weight: bold;
+	width: 60%;
+	position: absolute;
+	left: 220px;
+    top: 95px;
+	
+}
+.volume{
+	
+	position: absolute;
+	left: 25px;
+    top: 315px;
+    padding: 10px;
+    margin: 10px;
+}
+.volume h4{
+	font-family: Roboto;
+	font-size: 28px;
+}
+.volume h5{
+	font-family: Roboto;
+	font-size: 16px;
+	margin: 0px !important;
+}
+.volume a {
+	color: #ff931e !important;
+	text-decoration: none;
+}
+.fa-angle-right{
+	margin: 0px 5px;
+}
+.frame_footer{
+	position: absolute;
+	bottom: -500px;
+	left: 15px;
+	font-size: 18px;
+	
+}
+/* Footer */
+.menu_footer a{
+	text-decoration: none;
+	font-size: 18px;
+	color: #ff931e;
+	font-family: Roboto;
+}
+.menu_footer li {
+	float: left;
+	list-style: none;
+	padding: 20px 50px;
+	margin: 10px 20px;
+}
+.menu_footer {
+	text-align: center !important;
+	margin-left: 150px;
+	position: relative;
+}
+.active {
+	font-weight: bold;
+}
+.menu_footer a:hover{
+	background: rgba(0,0,0,0) url(images/highlight_active_menu_footer.png) no-repeat scroll center;
+	background-position: center bottom;
+}
+.languages select {
+	float: right;
+	color: #000;
+	margin-top: 20px;
+}
