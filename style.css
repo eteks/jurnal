@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
 Theme Name: journal
 Theme URI: https://journal.com/journal/
 Author: the Etekchnoservices team
@@ -7,7 +8,6 @@ Version: 1.0
 Tags: black, blue, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, featured-images, post-formats
 Text Domain: journal
 */
-
 
 /* reusable css */
 .fl{
@@ -18,6 +18,9 @@ Text Domain: journal
 }
 .no_pad{
 	padding: 0px !important;
+}
+.clearfix{
+	clear: both;
 }
 /* top-header*/
 header{
@@ -45,7 +48,6 @@ header{
 }
 .nav a:hover{
 	color: #614a42 !important;
-	/*background: rgba(0,0,0,0) url("../images/highlight_active_menu_header.png") no-repeat center bottom;*/
 }
 /* sub-header */
 #sub-header {
