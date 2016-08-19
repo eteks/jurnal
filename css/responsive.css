@@ -1,0 +1,505 @@
+/* AKILA CODE */
+@media (max-width: 320px){
+/* Header */	
+	.title2 p {
+	    font-family: Roboto;
+	    font-size: 12px !important;
+	    width: 215px !important;
+	}
+	.building_img {
+    	width: 48px !important;
+	}
+/* Table -content */
+	.content_subtitle{
+		left: 45px !important;
+	} 
+	.volume_number {
+        left: 95px !important;
+    }
+	.page_content table {
+    	width: 235px !important;
+	}
+	.page_content {
+    	font-size: 10px !important;
+	}
+	.table_content td {
+	    border-bottom: 1px solid #ccc;
+	    margin: 20px 10px;
+	    padding: 20px 45px !important;
+	}
+	
+}
+	
+@media (max-width: 480px){
+/* Header */
+	.mobile_title{
+		font-size: 28px;
+		font-family: Roboto;
+		line-height: 1.5;
+	}	
+	.navbar-brand {
+	    float: left;
+	    font-size: 18px;
+	    height: 112px !important;
+	    line-height: 20px;
+	    padding: 0px ! important;
+	    
+	}
+	.logo_img{
+		height: auto;
+        width: 60px;
+    }
+    .building_img{
+    	width: 50px;
+    }
+	.title2 p {
+	    font-family: Roboto;
+	    font-size: 14px;
+	    width: 235px;
+	}
+	.title_nopad {
+		padding: 0px !important;
+	}
+/*Frame Title */
+	.frame_title {
+	    color: #755e58;
+	    font-family: Times New Roman;
+	    font-size: 18px;
+	    font-weight: bold;
+	    left: 15px;
+	    position: absolute;
+	    top: 115px;
+	    width: 95%;
+    }
+    .building_pic{
+    	width: 50px;
+    }
+    .volume{
+    	top: 225px;
+    }
+    .volume h4{
+		font-size: 14px;
+	}
+	.volume h5{
+		font-size: 14px;
+		margin: 0px !important;
+	}
+	.frame_footer {
+        left: 10px;
+    }
+/* Frame- table content */
+	.content_subtitle{
+	    font-size: 18px;
+	    left: 55px;
+	    position: absolute;
+	    top: 200px;
+	}
+	.volume_number {
+	    font-size: 18px;
+	    left: 110px;
+	    position: absolute;
+	    top: 215px;
+	}
+	.page_content table {
+	    width: 280px;
+	}
+	.page_content {
+	    font-size: 14px;
+	    left: 30px;
+	    position: absolute;
+	    top: 300px;
+	} 
+	.content_footer {
+        left: 15px;
+        bottom: -755px;
+        text-align: center;
+	} 
+/* Article */
+	.form_download {
+    	margin-left: 25px;
+    }	 
+/* List-article */
+	.form_download {
+    	margin-left: 25px;
+    }	  
+/* footer */
+	.menu_footer {
+    	margin-left: 25px;
+    	margin-left: -65px;
+    }
+    .menu_footer li{
+    	float: none;
+    	margin: 0px;
+    }	    
+}
+
+@media (min-width: 768px) and (max-width: 991px)  { 
+/* Header */
+	.logo_img{
+		height: auto;
+        width: 60px;
+    }
+	.nav-justified {
+    	width: 85% !important;
+	}
+	.navbar-collapse h2 {
+		font-size: 29px;
+	}
+/* Frame */
+	.frame_title {
+	    color: #755e58;
+	    font-family: Times New Roman;
+	    font-size: 35px;
+	    font-weight: bold;
+	    left: 190px;
+	    position: absolute;
+	    top: 95px;
+	    width: 50%;
+	}
+/* frame-table contents */
+	.content_subtitle{
+		color: #755e58;
+	    font-family: Times New Roman;
+	    font-size: 36px;
+	    left: 165px;
+	    position: absolute;
+	    top: 120px;
+	}
+	.volume_number {
+	    left: -145px;
+	    top: 185px;	
+	}
+	.page_content {
+	    font-size: 20px;
+	    left: 90px;
+	}
+	.page_content table {
+ 	   width: 540px;
+	} 
+	.content_footer {
+        left: 180px;
+        bottom: -765px;
+	}   
+/* footer */
+	.menu_footer {
+		margin-left: 15px !important;
+	}
+	.menu_footer li {
+		margin: 0px;
+	}	
+}
+
+/* VELPANDI CODE */
+
+/*********Article Page************/
+@media (min-width: 320px) and (max-width: 640px){
+	.frame_subtitle {
+	    color: #755e58;
+	    font-family: Times New Roman;
+	    font-size: 18px;
+	    font-weight: bold;
+	    position: relative;
+	    top: 100px;
+	    width: 100%;
+	    left: 0px;
+	}
+	.form_download{
+		position: relative;
+	}
+	.dwnld{
+		position:absolute;
+		top: 140px;
+		left: 0px;
+		width:100%;
+	}
+	.no_pad p{
+		margin-bottom: 10px;
+	    margin-top: 10px;
+	}
+}
+@media (min-width: 320px) and (max-width: 640px){
+	.submit {
+	    background-color: #ff931e;
+	    border-radius: 20px;
+	    font-size: 14px;
+	    left: 0px;
+	    margin: 40px;
+	    padding: 10px 25px;
+	    position: absolute;
+	    text-align: center;
+	}
+	input[type="text"]{
+		height: 35px;
+		width: 100%;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991px){
+	.frame_subtitle {
+	    color: #755e58;
+	    font-family: Times New Roman;
+	    font-size: 28px;
+	    font-weight: bold;
+	    left: 5px;
+	    position: relative;
+	    top: 100px;
+	    width: 100%;
+	}
+	.form_download{
+		position: relative;
+	}
+	.dwnld{
+		left: 178px;
+	    position: absolute;
+	    top: 150px;
+	    width: 100%;
+	}
+	.no_pad p{
+		margin-bottom: 10px;
+	    margin-top: 10px;
+	}
+	.submit {
+	    background-color: #ff931e;
+	    border-radius: 20px;
+	    font-size: 14px;
+	    left: 0px;
+	    margin: 40px;
+	    padding: 10px 25px;
+	    position: absolute;
+	    text-align: center;
+	}
+	input[type="text"]{
+		height: 35px;
+		width: 100%;
+	}
+	.breadcrumb {
+	    left: 250px;
+	    margin: 20px;
+	    padding: 10px;
+	    position: relative;
+	    text-align: center;
+	    top: 80px;
+	    width: 25%;
+	}
+	.breadcrumb-w > span,
+	.breadcrumb-w ul li span,
+	.breadcrumb-w ul li a{
+	  font-size: 12px;
+	  color: #614a42;
+	}	
+}
+@media (min-width: 992px) and (max-width: 1199px){
+	.frame_subtitle {
+	    color: #755e58;
+	    font-family: Times New Roman;
+	    font-size: 45px;
+	    font-weight: bold;
+	    left: 5px;
+	    position: relative;
+	    top: 80px;
+	    width: 100%;
+	}
+	.form_download{
+		position: relative;
+	}
+	.dwnld{
+		left: 220px;
+	    position: absolute;
+	    top: 110px;
+	    width: 100%;
+	}
+	.no_pad p{
+		margin-bottom: 10px;
+	    margin-top: 10px;
+	}
+	.submit {
+	    background-color: #ff931e;
+	    border-radius: 20px;
+	    font-size: 18px;
+	    left: 100px;
+	    margin: 0px;
+	    padding: 10px 25px;
+	    position: relative;
+	    text-align: center;
+	    width: 30%;
+	}
+	input[type="text"]{
+		height: 45px;
+		width: 50%;
+	}
+	.breadcrumb {
+	    left: 480px;
+	    margin: 20px;
+	    padding: 10px;
+	    position: relative;
+	    text-align: center;
+	    top: 50px;
+	    width: 50%;
+	}
+}
+/*****eND OF aRTICLE*****/
+
+
+/*******Download Article*******/
+@media (min-width: 320px) and (max-width: 640px){
+	.article_title {
+		color: #755e58;
+	    font-family: Times New Roman;
+	    font-size: 18px;
+	    font-weight: bold;
+	    left: 0;
+	    position: relative;
+	    top: 150px;
+	}
+	.article_form{
+		left: 0;
+	    position: absolute;
+	    top: 200px;
+	    width: 100%;	
+	}
+	.telecharger{
+	    background-color: #ff931e;
+	    border-radius: 20px;
+	    font-size: 14px;
+	    left: 0px;
+	    margin: 40px;
+	    padding: 10px 25px;
+	    position: absolute;
+	    text-align: center;
+	}
+	.telecharger_dwnld{
+	    background-color: #ff931e;
+	    border-radius: 20px;
+	    font-size: 14px;
+	    left: 0px;
+	    margin: 40px;
+	    padding: 10px 25px;
+	    position: absolute;
+	    text-align: center;
+	}
+}
+@media (min-width: 768px) and (max-width: 991px){
+	.article_title{
+	    color: #755e58;
+	    font-family: Times New Roman;
+	    font-size: 28px;
+	    font-weight: bold;
+	    left: 5px;
+	    position: relative;
+	    top: 100px;
+	    width: 100%;
+	}
+	.article_form{
+		left: 180px;
+	    position: absolute;
+	    top: 150px;
+	    width: 100%;
+	}
+	.telecharger{
+	    background-color: #ff931e;
+	    border-radius: 20px;
+	    font-size: 14px;
+	    left: 0px;
+	    margin: 40px;
+	    padding: 10px 25px;
+	    position: absolute;
+	    text-align: center;
+	}
+	.telecharger_dwnld{
+	    background-color: #ff931e;
+	    border-radius: 20px;
+	    font-size: 14px;
+	    left: 0px;
+	    margin: 40px;
+	    padding: 10px 25px;
+	    position: absolute;
+	    text-align: center;
+	}
+}
+@media (min-width: 992px) and (max-width: 1199px){
+	.article_title{
+	    color: #755e58;
+	    font-family: Times New Roman;
+	    font-size: 45px;
+	    font-weight: bold;
+	    left: 5px;
+	    position: relative;
+	    top: 80px;
+	    width: 100%;
+	}
+	.article_form{
+		left: 220px;
+	    position: absolute;
+	    top: 110px;
+	    width: 100%;
+	}
+	.telecharger{
+	    background-color: #ff931e;
+	    border-radius: 20px;
+	    font-size: 18px;
+	    left: 100px;
+	    margin: 0px;
+	    padding: 10px 25px;
+	    position: relative;
+	    text-align: center;
+	    width: 30%;
+	}
+	.telecharger_dwnld{
+	    background-color: #ff931e;
+	    border-radius: 20px;
+	    font-size: 18px;
+	    left: 100px;
+	    margin: 0px;
+	    padding: 10px 25px;
+	    position: relative;
+	    text-align: center;
+	    width: 30%;
+	}
+}
+/*****eND OF Download Article*****/
+
+/*****List Article*****/
+@media (min-width: 320px) and (max-width: 640px){
+	.list-articles{
+		position:absolute;
+		top: 200px;
+		left: 0px;
+		width: 100%;
+	}
+	.article_name > textarea{
+		width: 100%
+	}
+	.article_email > textarea{
+		width: 100%;
+	}
+	}
+	@media (min-width: 768px) and (max-width: 991px){
+	.list-articles{
+		left: 180px;
+	    position: absolute;
+	    top: 150px;
+	    width: 100%;
+	}
+	.article_name > textarea{
+		width: 100%
+	}
+	.article_email > textarea{
+		width: 100%;
+	}
+	}
+	@media (min-width: 992px) and (max-width: 1199px){
+	.list-articles{
+		left: 220px;
+	    position: absolute;
+	    top: 110px;
+	    width: 100%;
+	}
+	.article_name > textarea{
+		width: 50%
+	}
+	.article_email > textarea{
+		width: 50%;
+	}
+}
+/*****eND OF List Article*****/.
+
