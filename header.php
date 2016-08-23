@@ -25,7 +25,7 @@
 								 	 <span class="icon-bar"></span> 
 						  		</button>
 						  		<div class="navbar-brand navbar-left">
-						  			<a href="#">
+						  			<a href="volumes">
 						  				<img src="<?php bloginfo('stylesheet_directory');?>/images/logo.png">
 						  			</a>
 						  		</div>
@@ -34,18 +34,17 @@
 						    	<select class="languages" >
 						      		<option value="ENGLISH"selected>English</option>
 						      		<option value="FRENCH">French</option>
-						      		<option value="TAMIL">Tamil</option>
 						      	</select>
 						    </div>
-				      		<h2 class="mobile_title visible-xs col-xs-12">LA SOCIÉTÉ HISTOIRE de PONDICHÉRRY</h2>	
+				      		<h2 class="mobile_title visible-xs col-xs-12">LA SOCIÉTÉ HISTOIRE de PONDICHÉRY</h2>	
 		  			  		<div class="navbar-collapse collapse col-sm-11 col-lg-9">
 				  			  	<!-- <div class="navbar-collapse collapse col-sm-11 col-lg-9" aria-expanded="false" style="height: 1px;">  -->  
-				  			  	<h2 class="hidden-xs">LA SOCIÉTÉ HISTOIRE de PONDICHÉRRY</h2>
+				  			  	<h2 class="hidden-xs">LA SOCIÉTÉ HISTOIRE de PONDICHÉRY</h2>
 				  			  	<ul class="nav nav-justified">
-								 	<li><a href="<?php bloginfo('stylesheet_directory'); ?>/index.php">Home</a></li>
-									<li><a href="<?php bloginfo('stylesheet_directory'); ?>/about.php">About us</a></li>
-									<li><a href="<?php bloginfo('stylesheet_directory'); ?>/contact.php">Contact us</a></li>
-									<li><a href="<?php bloginfo('stylesheet_directory'); ?>/feedback.php">Feedback</a></li>
+								 	<li class="active"><a href="volumes">Home</a></li>
+									<li><a href="#">About us</a></li>
+									<li><a href="#">Contact us</a></li>
+									<li><a href="#">Feedback</a></li>
 								</ul>
 					  		</div><!-- /.navbar-collapse --> 
 				  		</nav>

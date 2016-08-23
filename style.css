@@ -13,6 +13,9 @@ Text Domain: journal
 .fl{
 	float: left;
 }
+.body_overflow {
+	overflow: hidden;
+}
 .fr{
 	float: right;
 }
@@ -80,6 +83,7 @@ header{
 }
 .frame_text{
 	position: relative;
+	color : #614a42;
  }
 h1,.frame_footer{
 	text-align: center;
@@ -114,6 +118,10 @@ h1,.frame_footer{
 	margin: 0px !important;
 }
 .volume a {
+	color: #614a42 !important;
+	text-decoration: none;
+}
+.volume a:hover {
 	color: #ff931e !important;
 	text-decoration: none;
 }
@@ -131,8 +139,12 @@ h1,.frame_footer{
 .menu_footer a{
 	text-decoration: none;
 	font-size: 18px;
-	color: #ff931e;
+	color: #614a42;
 	font-family: Roboto;
+}
+.menu_footer a:hover{
+	text-decoration: none;
+	color: #ff931e;
 }
 .menu_footer li {
 	float: left;
@@ -190,17 +202,20 @@ h1,.frame_footer{
     top: 200px;
 }
 .volume_number{
-	font-family: Times New Roman;
-	font-size: 28px;
-	color: #755e58;
-	position: absolute;
-	left: 0px;
-    top: 250px;
+	color: #614a42;
+    display: block;
+    font-family: Times New Roman;
+    font-size: 28px;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 218px;
+    width: 100% !important;
 	
 }
 .page_content{
 	font-family: Roboto;
-	color: #ff931e;
+	color: #614a42;
 	font-size: 28px;
 	position: absolute;
 	left: 315px;
@@ -216,14 +231,18 @@ h1,.frame_footer{
 	border-bottom: 1px solid #ccc;
 }
 .td1 a{
-	color: #ff931e;
+	color: #614a42;
+	text-decoration: none;
+}
+.td1 a:hover{
+	color: #ff931e ;
 	text-decoration: none;
 }
 .content_footer{
 	bottom: -860px;
-    left: 420px;
-    position: absolute;
     font-size: 18px;
+    position: absolute;
+    text-align: center;
 }
 /* Form Download */
 .form_download{
@@ -245,7 +264,7 @@ input[type="text"]{
 .article_name, .both_field, .article_email{
 	margin: 20px 0px;
 }
-.submit {
+.download_article_popup {
 	padding: 10px 25px;
 	margin: 20px;
 	background-color: #ff931e;
@@ -255,7 +274,7 @@ input[type="text"]{
 	border-radius: 15px;
 	font-size: 18px;
 }
-.submit a, .telecharger a, .telecharger_dwnld a{
+.download_article_popup a, .telecharger a, .telecharger_dwnld a{
 	color: #ffffff;
 }
 /* Article download  */
@@ -311,7 +330,8 @@ input[type="text"]{
 } 
 .articlecontent {
 	position: absolute;
-	top: 330px;
+	text-align: justify;
+    top: 200px;
 }
 input {
     height: 35px !important;
@@ -320,14 +340,15 @@ input {
     width : 100%;
 }
 .download {
-	background-color: #ff931e;
+	background-color: #614a42;
     border-radius: 15px;
-    bottom: 190px;
+    color: #fff;
     font-size: 18px;
-    left: 485px;
+    margin: 0 auto;
     padding: 10px 25px;
-    position: absolute;
+    position: relative;
     text-align: center;
+    width: 30%;
 }
 form {
 	text-align : center;
@@ -336,10 +357,18 @@ label {
 	text-align : left;
 }
 input[type="submit"] {
-	background-color: #ff931e;
+	background-color: #614a42;
     border-radius: 15px;
     font-size: 18px;
     height: auto !important;
     padding: 4px 35px;
     width: auto !important;
+    color: #fff;
+}
+.article_content_section_height_overflow {
+	overflow: auto;
+}
+.article_content_section_height {
+	height: 750px;
+	overflow: auto;
 }

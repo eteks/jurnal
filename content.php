@@ -9,14 +9,17 @@
 		<hr> 
 		<?php
 			$sql = "SELECT * FROM wp_term_taxonomy where parent='$args'";
-			$result = $wpdb->get_results($sql) or die(mysql_error());
-			foreach ($result as $key => $value) { 
+			$result_rows = $wpdb->get_var($sql);
+			$result_rows = $wpdb->num_rows;	
+			if($result_rows>0) {
+				$result = $wpdb->get_results($sql) or die(mysql_error());
+				foreach ($result as $key => $value) { 
 		?>
 		<div class="volume col-xs-10 col-lg-12">
-			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">	
+			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-3">	
 		 	 	<img src="<?php bloginfo('stylesheet_directory');?>/images/building.png" alt="Building_picture" class="fr">
 			</div>
-		    <div class="col-xs-8 col-sm-6 col-md-8 col-lg-8 no_pad ">	
+		    <div class="col-xs-8 col-sm-6 col-md-8 col-lg-9 no_pad ">	
 				<h4 class="fl"> <?php echo get_cat_name($value->term_id); ?> </h4>
 			</div>
 			<div class="col-xs-8 col-sm-6 col-md-8 col-lg-8 no_pad ">	
@@ -25,10 +28,14 @@
 			<div class="clearfix"> </div>
 		</div>
 		<?php
+				}
+			} else {
+				echo "No volumes found";
 			}
 		?>
+		
 		<div class="col-xs-11 col-sm-12 col-md-12 col-lg-12 frame_footer">
-		    <span>HISTORICAL SOCIETY OF PONDICHERY</span>
+		    <span>HISTORICAL SOCIETY OF PONDICHERRY</span>
 		</div>
 	</div>
 	<?php	
@@ -44,7 +51,7 @@
 					  	<div class="breadcrumb-w hidden-xs col-sm-12">
 							<ul class="breadcrumb">
 								<li>
-									<a href="index.html">Home page</a>
+									<a href="volumes">Home page</a>
 								</li>
 								<li>
 									<span>Sections table</span>
@@ -56,9 +63,14 @@
 			  	 		<div class="page_content">
 			 	 			<table class="table_content">
         						<?php
+									
 									$sql = "SELECT * FROM wp_term_taxonomy inner join wp_terms on wp_term_taxonomy.term_taxonomy_id=wp_terms.term_id where wp_term_taxonomy.parent='$vol_id'";
+
+									$result_rows = $wpdb->get_var($sql);
+									$result_rows = $wpdb->num_rows;	
+									if($result_rows>0) {
 										$result = $wpdb->get_results($sql) or die(mysql_error());
-									foreach ($result as $key => $value) { 
+										foreach ($result as $key => $value) { 
 										$sections=explode("-",$value->name);
   								?>	
 				
@@ -67,14 +79,17 @@
 									<td class="td2"> <?php echo $sections[1]; ?> </td>
 								</tr>
 								<?php 
-									} 
+										} 
+									} else {
+										echo "No sections found";
+									}
 								?>
 
 							</table>
 						</div>
 						<div class="clearfix"> </div>
-						<div class="col-xs-11 col-sm-7 col-md-8 col-lg-4 content_footer">
-							<span>HISTORICAL SOCIETY OF PONDICHERY</span>
+						<div class="col-xs-11 col-sm-7 col-md-8 col-lg-12 content_footer">
+							<span>HISTORICAL SOCIETY OF PONDICHERRY</span>
 						</div>
 					</div>
 				</div>
@@ -95,7 +110,7 @@
 					  	<div class="breadcrumb-w hidden-xs col-sm-12">
 							<ul class="breadcrumb">
 								<li>
-									<a href="index.html">Home page</a>
+									<a href="volumes">Home page</a>
 								</li>
 								<li>
 									<span>Artilcles table</span>
@@ -113,7 +128,7 @@
 										$sections=explode("-",$value->name);
   								?>			
   								<tr>
-									<td class="td1"><a href="articlecontent?sec_id=<?php echo $value->term_id; ?>"> <?php echo $sections[0]; ?> </a></td>
+									<td class="td1"><a href="<?php echo $sections[0]; ?>"> <?php echo $sections[0]; ?> </a></td>
 									<td class="td2"> <?php echo $sections[1]; ?> </td>
 								</tr>
 								<?php
@@ -122,8 +137,8 @@
 							</table>
 						</div>
 						<div class="clearfix"> </div>
-						<div class="col-xs-11 col-sm-7 col-md-8 col-lg-4 content_footer">
-							<span>HISTORICAL SOCIETY OF PONDICHERY</span>
+						<div class="col-xs-11 col-sm-7 col-md-8 col-lg-12 content_footer">
+							<span>HISTORICAL SOCIETY OF PONDICHERRY</span>
 						</div>
 					</div>
 				</div>
@@ -132,9 +147,31 @@
     </section>	
 	<?php
 		}
-		else {
-			echo '';
-		}
-		the_content();
+		else { 
+			$today_date=date("Y-m-d");
+			?>
+		<div class="frame_text">
+			<h1 class="frame_title"> <?php echo $parent_title; ?>  </h1>
+			<hr />
+			<input type="hidden" value="<?php echo $parent_title; ?>" id="download_article_name" />
+			<input type="hidden" value="<?php echo $today_date ?>" id="download_article_date" />
+			<div class="articlecontent col-xs-10 col-lg-12">
+				<div class="col-xs-10 col-lg-1"></div>
+				<div class="col-xs-10 col-lg-10 article_content_section">
+					<?php
+						// global $more;
+						// $more = 0;
+						the_content('Read the full article...');
+					?>
+
+				</div>
+				<div class="col-xs-10 col-lg-1"></div>
+				<!--<a data-popup-event="click" data-sgpopupid="1" class="sg-show-popup" href="javascript:void(0)"><p></p>
+					<div class="download">Télécharger Article</div>
+				</a> -->
+			</div>
+		</div>
+	<?php	}
+		// the_content();
 	?>
 </section>	
