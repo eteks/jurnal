@@ -42,9 +42,9 @@
 				  			  	<h2 class="hidden-xs">LA SOCIÉTÉ HISTOIRE de PONDICHÉRY</h2>
 				  			  	<ul class="nav nav-justified">
 								 	<li class="active"><a href="volumes">Home</a></li>
-									<li><a href="#">About us</a></li>
-									<li><a href="#">Contact us</a></li>
-									<li><a href="#">Feedback</a></li>
+									<li><a href="about">About us</a></li>
+									<li><a href="contact">Contact us</a></li>
+									<li><a href="feedback">Feedback</a></li>
 								</ul>
 					  		</div><!-- /.navbar-collapse --> 
 				  		</nav>

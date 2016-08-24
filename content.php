@@ -3,18 +3,36 @@
 		$parent_title = get_the_title($post->post_parent);
 		$args = get_cat_ID($parent_title) ;
 		if($parent_title == 'volumes') { 
+
 	?>
 	<div class="frame_text">
 		<h1 class="frame_title">REVUE HISTORIQUE<br> de<br> PONDICHÉRY</h1>
 		<hr> 
 		<?php
-			$sql = "SELECT * FROM wp_term_taxonomy where parent='$args'";
+			$start=0;
+			$limit=5;
+
+			if(isset($_GET['id']))
+			{
+				$id=$_GET['id'];
+				$start=($id-1)*$limit;
+			}
+			else{
+				$id=1;
+			}
+			$query = "SELECT * FROM wp_term_taxonomy where parent='$args'";
+			$sql = "SELECT * FROM wp_term_taxonomy where parent='$args' LIMIT $start, $limit";
+
+			$result_rows1 = $wpdb->get_var($query);
+			$result_rows1 = $wpdb->num_rows;
 			$result_rows = $wpdb->get_var($sql);
 			$result_rows = $wpdb->num_rows;	
 			if($result_rows>0) {
 				$result = $wpdb->get_results($sql) or die(mysql_error());
 				foreach ($result as $key => $value) { 
+					
 		?>
+
 		<div class="volume col-xs-10 col-lg-12">
 			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-3">	
 		 	 	<img src="<?php bloginfo('stylesheet_directory');?>/images/building.png" alt="Building_picture" class="fr">
@@ -27,14 +45,40 @@
 			</div>
 			<div class="clearfix"> </div>
 		</div>
-		<?php
-				}
-			} else {
+		<?php		}
+		
+
+		$total=ceil($result_rows1/$limit);
+		echo '<div class="page_button">';
+		if($id>1)
+		{
+			//Go to previous page to show previous 10 items. If its in page 1 then it is inactive
+			echo "<a href='?id=".($id-1)."' class='button'>  << </a>";
+		}
+		
+		//show all the page link with page number. When click on these numbers go to particular page. 
+			echo '<ul class="page">';
+
+			for($i=1;$i<=$total;$i++)
+			{
+				if($i==$id) { echo "<li class='current'>".$i."</li>"; }
+			
+				else { echo "<li><a href='?id=".$i."'>".$i."</a></li>"; }
+			}
+			
+			echo '</ul> ';
+			if($id!=$total)
+			{
+				////Go to previous page to show next 10 items.
+				echo "<a href='?id=".($id+1)."' class='button'> >> </a>";
+			}
+			 echo '</div>';
+}
+			else {
 				echo "No volumes found";
 			}
 		?>
-		
-		<div class="col-xs-11 col-sm-12 col-md-12 col-lg-12 frame_footer">
+			<div class="col-xs-11 col-sm-12 col-md-12 col-lg-12 frame_footer">
 		    <span>HISTORICAL SOCIETY OF PONDICHERRY</span>
 		</div>
 	</div>
@@ -63,28 +107,61 @@
 			  	 		<div class="page_content">
 			 	 			<table class="table_content">
         						<?php
-									
-									$sql = "SELECT * FROM wp_term_taxonomy inner join wp_terms on wp_term_taxonomy.term_taxonomy_id=wp_terms.term_id where wp_term_taxonomy.parent='$vol_id'";
-
+        						$start=0;
+								$limit=5;
+								if(isset($_GET['id']))
+									{
+										$id=$_GET['id'];
+										$start=($id-1)*$limit;
+									}
+									else{
+										$id=1;
+									}
+									$query = "SELECT * FROM wp_term_taxonomy where parent='$vol_id'";
+									$sql = "SELECT * FROM wp_term_taxonomy inner join wp_terms on wp_term_taxonomy.term_taxonomy_id=wp_terms.term_id where wp_term_taxonomy.parent='$vol_id'LIMIT $start, $limit";
+									$result_rows1 = $wpdb->get_var($query);
+									$result_rows1 = $wpdb->num_rows;
 									$result_rows = $wpdb->get_var($sql);
 									$result_rows = $wpdb->num_rows;	
 									if($result_rows>0) {
 										$result = $wpdb->get_results($sql) or die(mysql_error());
 										foreach ($result as $key => $value) { 
 										$sections=explode("-",$value->name);
-  								?>	
-				
+  								?>					
   								<tr>
 									<td class="td1"><a href="articles?sec_id=<?php echo $value->term_id; ?>"> <?php echo $sections[0]; ?> </a></td>
 									<td class="td2"> <?php echo $sections[1]; ?> </td>
 								</tr>
 								<?php 
 										} 
+
+								$total=ceil($result_rows1/$limit);
+								echo '<div class="page_button">';
+								if($id>1)
+								{
+									//Go to previous page to show previous 10 items. If its in page 1 then it is inactive
+									echo "<a href='?vol_id=".$vol_id."&id=".($id-1)."' class='button'>  << </a>";
+								}
+								if($id!=$total)
+								{
+									////Go to previous page to show next 10 items.
+									echo "<a href='?vol_id=".$vol_id."&id=".($id+1)."' class='button'> >> </a>";
+								}
+								//show all the page link with page number. When click on these numbers go to particular page. 
+									echo '<ul class="page">';
+
+									for($i=1;$i<=$total;$i++)
+									{
+										if($i==$id) { echo "<li class='current'>".$i."</li>"; }
+									
+										else { echo "<li><a href='?vol_id=".$vol_id."&id=".$i."'>".$i."</a></li>"; }
+									}
+									
+									echo '</ul> </div>';
 									} else {
 										echo "No sections found";
 									}
 								?>
-
 							</table>
 						</div>
 						<div class="clearfix"> </div>
@@ -122,8 +199,31 @@
 				  	 	<div class="page_content">
 				  	 		<table class="table_content">
         						<?php
-									$sql = "SELECT * FROM wp_term_taxonomy inner join wp_terms on wp_term_taxonomy.term_taxonomy_id=wp_terms.term_id where wp_term_taxonomy.parent='$sec_id'";
+
+
+
+
+        							$start=0;
+										$limit=5;
+
+										if(isset($_GET['id']))
+										{
+											$id=$_GET['id'];
+											$start=($id-1)*$limit;
+										}
+										else{
+											$id=1;
+										}
+										$query = "SELECT * FROM wp_term_taxonomy where parent='$sec_id'";									
+									$sql = "SELECT * FROM wp_term_taxonomy inner join wp_terms on wp_term_taxonomy.term_taxonomy_id=wp_terms.term_id where wp_term_taxonomy.parent='$sec_id'LIMIT $start, $limit";
 									$result = $wpdb->get_results($sql) or die(mysql_error());
+
+									$result_rows1 = $wpdb->get_var($query);
+									$result_rows1 = $wpdb->num_rows;
+									$result_rows = $wpdb->get_var($sql);
+									$result_rows = $wpdb->num_rows;	
+									if($result_rows>0) {
+									$result = $wpdb->get_results($sql) or die(mysql_error());	
 									foreach ($result as $key => $value) { 
 										$sections=explode("-",$value->name);
   								?>			
@@ -133,6 +233,32 @@
 								</tr>
 								<?php
 									} 
+										$total=ceil($result_rows1/$limit);
+								echo '<div class="page_button">';
+								if($id>1)
+								{
+									//Go to previous page to show previous 10 items. If its in page 1 then it is inactive
+									echo "<a href='?sec_id=".$sec_id."&id=".($id-1)."' class='button'>  << </a>";
+								}
+								if($id!=$total)
+								{
+									////Go to previous page to show next 10 items.
+									echo "<a href='?sec_id=".$sec_id."&id=".($id+1)."' class='button'> >> </a>";
+								}
+								//show all the page link with page number. When click on these numbers go to particular page. 
+									echo '<ul class="page">';
+
+									for($i=1;$i<=$total;$i++)
+									{
+										if($i==$id) { echo "<li class='current'>".$i."</li>"; }
+									
+										else { echo "<li><a href='?sec_id=".$sec_id."&id=".$i."'>".$i."</a></li>"; }
+									}
+									
+										echo '</ul> </div>';
+									} else {
+										echo "No Artilcles found";
+									}
 								?>
 							</table>
 						</div>
