@@ -442,6 +442,47 @@ input[type="submit"] {
     width: 90%;
 }
 
+/*Added by thangam*/
+.page_button{
+    position: absolute;
+   right: 160px;
+    top: 850px;
+    font-size: 18px;
+}
+.page_button a {
+	display: inline-block;
+    border-radius: 15px;
+    cursor: pointer;
+    padding: 0.60rem;
+}
+.page_button li{
+		list-style: none;
+		display: inline;
+}
+.page_button  li:hover a  {
+ 	background-color: #ff931e;
+
+ }
+.button{
+    left: 100px;
+    margin-left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+#contact_form_text{
+ width: 350px;
+}
+#feedback_form_text{
+width:350px;
+}
+.contactus_form_label{
+	margin-bottom:25px !important;
+}
+.feedback_form_label{
+	margin-bottom:25px !important;
+}
+
 
 
 

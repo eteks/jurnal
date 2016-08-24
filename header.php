@@ -42,10 +42,10 @@
 				      		<div class="navbar-collapse collapse">
 		  			  			<span class="header_title hidden-xs">LA SOCIÉTÉ HISTOIRE de PONDICHÉRRY</span>	  
 				  			  	<ul class="nav nav-justified">
-								 	<li><a href="#" class="active">Home</a></li>
-									<li><a href="#">About Us</a></li>
-									<li><a href="#">Contact Us</a></li>
-									<li><a href="#">Feedback</a></li>
+								 	<li class="active"><a href="volumes">Home</a></li>
+									<li><a href="about">About us</a></li>
+									<li><a href="contact">Contact us</a></li>
+									<li><a href="feedback">Feedback</a></li>
 								</ul>
 					  		</div><!-- /.navbar-collapse --> 
 				  		</nav>

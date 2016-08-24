@@ -3,11 +3,25 @@
 		$parent_title = get_the_title($post->post_parent);
 		$args = get_cat_ID($parent_title) ;
 		if($parent_title == 'volumes') { 
+
 	?>
 			<div class="frame_text">
 				<h1 class="frame_title">REVUE HISTORIQUE<br> de<br> PONDICHÉRY</h1>
 				<?php
-				$sql = "SELECT * FROM wp_term_taxonomy where parent='$args'";
+				$start=0;
+				$limit=5;
+				if(isset($_GET['id']))
+				{
+					$id=$_GET['id'];
+					$start=($id-1)*$limit;
+				}
+				else{
+					$id=1;
+				}
+				$sql = "SELECT * FROM wp_term_taxonomy where parent='$args' LIMIT $start, $limit";
+				$query = "SELECT * FROM wp_term_taxonomy where parent='$args'";
+				$result_rows1 = $wpdb->get_var($query);
+				$result_rows1 = $wpdb->num_rows;
 				$result_rows = $wpdb->get_var($sql);
 				$result_rows = $wpdb->num_rows;	
 				if($result_rows>0) {
@@ -30,6 +44,28 @@
 		    	</div>
 				<?php
 				}
+				$total=ceil($result_rows1/$limit);
+				echo '<div class="page_button">';
+				if($id>1)
+				{
+				echo "<a href='?id=".($id-1)."' class='button'>  << </a>";
+				}
+				echo '<ul class="page">';
+				for($i=1;$i<=$total;$i++)
+				{
+					if($i==$id) { 
+						echo "<li class='current'>".$i."</li>"; 
+					}
+					else { 
+						echo "<li><a href='?id=".$i."'>".$i."</a></li>"; 
+					}
+				}
+				echo '</ul> ';
+				if($id!=$total)
+				{
+					echo "<a href='?id=".($id+1)."' class='button'> >> </a>";
+				}
+				echo '</div>';
 				} else {
 					echo "No volumes found";
 				}
@@ -60,7 +96,20 @@
 			  	<div class="page_content">
 			  	 	<table class="table_content">
 			  	 		<?php
-						$sql = "SELECT * FROM wp_term_taxonomy inner join wp_terms on wp_term_taxonomy.term_taxonomy_id=wp_terms.term_id where wp_term_taxonomy.parent='$vol_id'";
+			  	 		$start=0;
+						$limit=5;
+						if(isset($_GET['id']))
+						{
+						$id=$_GET['id'];
+						$start=($id-1)*$limit;
+						}
+						else{
+							$id=1;
+						}
+						$sql = "SELECT * FROM wp_term_taxonomy inner join wp_terms on wp_term_taxonomy.term_taxonomy_id=wp_terms.term_id where wp_term_taxonomy.parent='$vol_id'LIMIT $start, $limit";
+						$query = "SELECT * FROM wp_term_taxonomy where parent='$vol_id'";
+						$result_rows1 = $wpdb->get_var($query);
+						$result_rows1 = $wpdb->num_rows;
 						$result_rows = $wpdb->get_var($sql);
 						$result_rows = $wpdb->num_rows;	
 						if($result_rows>0) {
@@ -72,9 +121,32 @@
 			  	 			<td class="td1"><a href="articles?sec_id=<?php echo $value->term_id; ?>"> <?php echo $sections[0]; ?> </a></td>
 			  	 			<td class="td2"> <?php echo $sections[1]; ?> </td>
 			  	 		</tr>
-			  	 		<?php 
+						<?php 
 						} 
-						} else {
+						$total=ceil($result_rows1/$limit);
+						echo '<div class="page_button">';
+						if($id>1)
+						{
+						echo "<a href='?vol_id=".$vol_id."&id=".($id-1)."' class='button'>  << </a>";
+						}
+						if($id!=$total)
+						{
+						echo "<a href='?vol_id=".$vol_id."&id=".($id+1)."' class='button'> >> </a>";
+						}
+						echo '<ul class="page">';
+						for($i=1;$i<=$total;$i++)
+						{
+							if($i==$id) 
+							{ 
+								echo "<li class='current'>".$i."</li>"; 
+							}
+							else { 
+								echo "<li><a href='?vol_id=".$vol_id."&id=".$i."'>".$i."</a></li>"; 
+							}
+						}
+						echo '</ul> </div>';
+						} 
+						else {
 							echo '<tr> <td> ';
 							echo "No sections found";
 							echo '</td> </tr>';
@@ -109,21 +181,55 @@
 			  	<h5 class="volume_number"> <?php echo $section_name[0]; ?> </h5>
 			  	<div class="page_content">
 			  	 	<table class="table_content">
-			  	 		<?php
-							$sql = "SELECT * FROM wp_term_taxonomy inner join wp_terms on wp_term_taxonomy.term_taxonomy_id=wp_terms.term_id where wp_term_taxonomy.parent='$sec_id'";
-							$result_rows = $wpdb->get_var($sql);
-							$result_rows = $wpdb->num_rows;
-							if($result_rows>0) {
-							$result = $wpdb->get_results($sql) or die(mysql_error());
-							foreach ($result as $key => $value) { 
-							$sections=explode("-",$value->name);
+			  	  		<?php
+			  	 		$start=0;
+						$limit=5;
+						if(isset($_GET['id']))
+						{
+						$id=$_GET['id'];
+						$start=($id-1)*$limit;
+						}
+						else{
+						$id=1;
+						}
+						$sql = "SELECT * FROM wp_term_taxonomy inner join wp_terms on wp_term_taxonomy.term_taxonomy_id=wp_terms.term_id where wp_term_taxonomy.parent='$sec_id'LIMIT $start, $limit";
+						$query = "SELECT * FROM wp_term_taxonomy where parent='$sec_id'";
+						$result_rows1 = $wpdb->get_var($query);
+						$result_rows1 = $wpdb->num_rows;
+						$result_rows = $wpdb->get_var($sql);
+						$result_rows = $wpdb->num_rows;
+						if($result_rows>0) {
+						$result = $wpdb->get_results($sql) or die(mysql_error());
+						foreach ($result as $key => $value) { 
+						$sections=explode("-",$value->name);
   						?>
 						<tr>
 			  	 			<td class="td1"> <a href="<?php echo $sections[0]; ?>"> <?php echo $sections[0]; ?> </a> </td>
 			  	 			<td class="td2"> <?php echo $sections[1]; ?> </td>
 			  	 		</tr>
-			  	 		<?php 
+			  	 		<?php
 						} 
+						$total=ceil($result_rows1/$limit);
+						echo '<div class="page_button">';
+						if($id>1)
+						{
+						echo "<a href='?sec_id=".$sec_id."&id=".($id-1)."' class='button'>  << </a>";
+						}
+						if($id!=$total)
+						{
+						echo "<a href='?sec_id=".$sec_id."&id=".($id+1)."' class='button'> >> </a>";
+						}
+						echo '<ul class="page">';
+						for($i=1;$i<=$total;$i++)
+						{
+							if($i==$id) { 
+								echo "<li class='current'>".$i."</li>"; 
+							}
+							else { 
+								echo "<li><a href='?sec_id=".$sec_id."&id=".$i."'>".$i."</a></li>"; 
+							}
+						}
+						echo '</ul> </div>';
 						} else {
 							echo '<tr> <td> ';
 							echo "No sections found";
