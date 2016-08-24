@@ -11,31 +11,31 @@ $('.download').on('click',function() {
 
 });
 $('.article_content_section').addClass('article_content_section_height');
-
-
+$('.article_content_section p:first-child a').attr('id','download_pdf_link');
+$('#download_pdf_link').css('display','none');
+$('#message_box_popup').prop('cols','30');
+$('#message_box_popup').prop('rows','5');
 
 // $('.download_article_popup')
 
-$('.wpcf7-form').submit(function() {
+$('#download_article_popup').click(function() {
 
+
+
+setTimeout(function(){
+ 
+	if($('.wpcf7-form').hasClass('invalid')) {
+		
+	}
+	else {
+		$('a#download_pdf_link')[0].click();
+	}
+
+
+}, 3000);
 
 
 	
-
-$(function () {
-    var specialElementHandlers = {
-        '#editor': function (element,renderer) {
-            return true;
-        }
-    };
- $('#cmd').click(function () {
-        var doc = new jsPDF();
-        doc.fromHTML($('#target').html(), 15, 15, {
-            'width': 170,'elementHandlers': specialElementHandlers
-        });
-        doc.save('sample-file.pdf');
-    });  
-});
 
 });
 

@@ -9,12 +9,26 @@ Tags: black, blue, responsive-layout, custom-background, custom-colors, custom-h
 Text Domain: journal
 */
 
-/* reusable css */
-.fl{
-	float: left;
+
+
+
+
+
+
+
+
+body{
+	font-family: Roboto;
 }
 .body_overflow {
 	overflow: hidden;
+}
+a {
+	outline: medium none;
+}
+/* reusable css */
+.fl{
+	float: left;
 }
 .fr{
 	float: right;
@@ -22,13 +36,45 @@ Text Domain: journal
 .no_pad{
 	padding: 0px !important;
 }
-.clearfix{
-	clear: both;
-}
+
+
 /* top-header*/
 header{
 	background-color: #614a42;
 	color: #ffffff;
+}
+
+
+.header_title{
+	font-size: 31px;
+	font-family: Myriad Pro;
+	font-weight: bold;
+	margin-left: 114px;
+	
+}
+.nav-justified {
+    margin-left: 250px !important;
+    margin-top: 20px;
+    width: 50% !important;
+}
+.navbar-brand{
+	padding: 0px !important;
+	margin-top: -3px;
+}
+.language_select{
+	margin: 50px 0px 0px;
+}
+.languages{
+	padding: 5px;
+	background-color: #755e57;
+	color: #ffffff;
+	border: 1px solid #755e57;
+	border-radius: 2px;
+	font-size: 16px !important;
+}
+.language_select select:hover, .language_select option:hover {
+	background-color: #fff;
+	color: #614a42;
 }
 .navbar-default {
     background-color: #614a42 !important;
@@ -37,20 +83,18 @@ header{
 .navbar {
     border-radius: 4px;
 }
-.navbar-collapse{
-	margin-left: 100px;
-}
 .navbar-collapse h3{
 	font-weight: bold;
 	word-spacing: 8px;
 }
 .nav a{
 	color: #ffffff;
-	font-family: Roboto;
 	font-size: 18px;
 }
-.nav a:hover{
-	color: #614a42 !important;
+.nav > li > a:hover, .nav > li > a:focus{
+	color: #ff931e !important;
+	background-color: #614a42  !important;
+	background: rgba(0,0,0,0) url(images/highlight_active_menu_header.png) no-repeat center bottom;
 }
 /* sub-header */
 #sub-header {
@@ -61,18 +105,16 @@ header{
 	margin: 20px auto;
 }
 .title2 p{
-	font-family: Roboto;
 	font-size: 21px;
 	width: 455px;
+	margin-top: 10px;
 }
 /* frame */
 #body_section {
 	background-color: #e4e3e3;
 	width: 100%;
-	/*height: 100%;*/
-	/*position: absolute;*/
 }
-.frame {
+#frame {
 	left: 0px;
     position: relative;
     top: 0px;
@@ -90,7 +132,7 @@ h1,.frame_footer{
 }
 .frame_title{
 	font-family: Times New Roman;
-	font-size: 48px;
+	font-size: 45px;
 	color: #755e58;
 	font-weight: bold;
 	width: 60%;
@@ -100,7 +142,7 @@ h1,.frame_footer{
 }
 .volume{
 	position: absolute;
-	left: 25px;
+	left: 55px;
     top: 315px;
     padding: 10px;
     margin: 10px;
@@ -109,11 +151,9 @@ h1,.frame_footer{
 	 border-bottom: 1px solid #ccc;
 }
 .volume h4{
-	font-family: Roboto;
-	font-size: 28px;
+	font-size: 23px;
 }
 .volume h5{
-	font-family: Roboto;
 	font-size: 16px;
 	margin: 0px !important;
 }
@@ -133,14 +173,12 @@ h1,.frame_footer{
 	bottom: -500px;
 	left: -15px;
 	font-size: 18px;
-	
 }
 /* Footer */
 .menu_footer a{
 	text-decoration: none;
-	font-size: 18px;
+	font-size: 24px;
 	color: #614a42;
-	font-family: Roboto;
 }
 .menu_footer a:hover{
 	text-decoration: none;
@@ -149,20 +187,19 @@ h1,.frame_footer{
 .menu_footer li {
 	float: left;
 	list-style: none;
-	padding: 20px 40px;
-	margin: 10px 20px;
+	padding: 20px;
+	margin: 10px 15px;
 }
 .menu_footer {
 	text-align: center !important;
-	margin-left: 150px;
+	margin-left: 190px;
 	position: relative;
 }
 .active {
 	font-weight: bold;
 }
 .menu_footer a:hover{
-	background: rgba(0,0,0,0) url(images/highlight_active_menu_footer.png) no-repeat scroll center;
-	background-position: center bottom;
+	background: rgba(0,0,0,0) url(images/highlight_active_menu_footer.png) no-repeat center bottom;
 }
 /* Breadcrumb */
 .breadcrumb-w > span,
@@ -196,37 +233,33 @@ h1,.frame_footer{
 .content_subtitle{
 	font-family: Times New Roman;
 	font-size: 36px;
-	color: #755e58;
+	color: #614a42;
 	position: absolute;
 	left: 365px;
     top: 200px;
 }
 .volume_number{
-	color: #614a42;
-    display: block;
-    font-family: Times New Roman;
-    font-size: 28px;
-    left: 0;
-    position: absolute;
+	font-family: Times New Roman;
+	font-size: 28px;
+	color: #755e58;
+	position: absolute;
+	/*left: 480px;*/
+    top: 260px;	
+    width : 100%;
     text-align: center;
-    top: 218px;
-    width: 100% !important;
-	
 }
 .page_content{
-	font-family: Roboto;
 	color: #614a42;
-	font-size: 28px;
+	font-size: 24px;
 	position: absolute;
-	left: 315px;
+	left: 285px;
     top: 340px;
-	
 }
 .page_content table{
-	width: 600px;
+	width: 580px;
 }
 .table_content td{
-	padding: 20px 50px;
+	padding: 20px 0 20px 10px;
 	margin: 20px  30px;
 	border-bottom: 1px solid #ccc;
 }
@@ -240,9 +273,9 @@ h1,.frame_footer{
 }
 .content_footer{
 	bottom: -860px;
-    font-size: 18px;
+    left: 380px;
     position: absolute;
-    text-align: center;
+    font-size: 18px;
 }
 /* Form Download */
 .form_download{
@@ -264,6 +297,20 @@ input[type="text"]{
 .article_name, .both_field, .article_email{
 	margin: 20px 0px;
 }
+.submit {
+    background-color: #ff931e;
+    border-radius: 20px;
+    font-size: 14px;
+    left: 450px;
+    margin: 40px;
+    padding: 5px 50px;
+    position: absolute;
+    text-align: center;
+    top: 800px;
+}
+.submit a, .telecharger a, .telecharger_dwnld a{
+	color: #ffffff;
+}
 .download_article_popup {
 	padding: 10px 25px;
 	margin: 20px;
@@ -282,7 +329,8 @@ input[type="text"]{
 	color: #755e58;
     font-family: Times New Roman;
     font-size: 36px;
-    left: 435px;
+    left: 490px;
+    -webkit-left: 455px;
     position: absolute;
     top: 200px;
 }
@@ -301,23 +349,37 @@ input[type="text"]{
 	width: 50%;
 }
 .telecharger{
-	padding: 10px 25px;
+	padding: 5px 50px;
 	margin: 20px;
 	background-color: #ff931e;
 	text-align: center;
 	position:absolute;
-	left: 115px;
+	left: 160px;
+	-webkit-position:absolute;
+	-webkit-appearance-left: 130px !important;
 	border-radius: 15px;
 	font-size: 18px;
 } 
 /*Lists articles to download */
+.form_download{
+	position: relative;
+}
 .list-articles{
 	position:absolute;
 	top: 330px;
-	left: 320px;
-	width: 50%;
+	left: 265px;
+	width: 55%;
 }
+
  /* Download */
+.title_download {
+	color: #755e58;
+    font-family: Times New Roman;
+    font-size: 36px;
+    left: 460px;
+    position: absolute;
+    top: 200px;
+}
 .telecharger_dwnld{
 	padding: 10px 25px;
 	margin: 20px;
@@ -327,7 +389,9 @@ input[type="text"]{
 	left: 135px;
 	border-radius: 15px;
 	font-size: 18px;
-} 
+}
+
+/* Added by siva */
 .articlecontent {
 	position: absolute;
 	text-align: justify;
@@ -372,3 +436,16 @@ input[type="submit"] {
 	height: 750px;
 	overflow: auto;
 }
+.sg-show-popup {
+	bottom: 20px;
+    position: absolute;
+    width: 90%;
+}
+
+
+
+
+
+
+
+
