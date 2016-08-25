@@ -45,32 +45,30 @@
 				<?php
 				}
 				$total=ceil($result_rows1/$limit);
-				echo '<div class="page_button">';
+				echo '<div class="col-xs-11 col-sm-12 col-md-12 col-lg-12 frame_footer"> <div class="paginaion_section col-lg-11">';
 				if($id>1)
 				{
-				echo "<a href='?id=".($id-1)."' class='button'>  << </a>";
+				echo "<a href='?id=".($id-1)."' class='button'>  < </a>";
 				}
-				echo '<ul class="page">';
 				for($i=1;$i<=$total;$i++)
 				{
 					if($i==$id) { 
-						echo "<li class='current'>".$i."</li>"; 
+						echo "<span class='current pagination_list'><a href='#'>".$i."</a></span>"; 
 					}
 					else { 
-						echo "<li><a href='?id=".$i."'>".$i."</a></li>"; 
+						echo "<span class='pagination_list'><a href='?id=".$i."'>".$i."</a></span>"; 
 					}
 				}
-				echo '</ul> ';
 				if($id!=$total)
 				{
-					echo "<a href='?id=".($id+1)."' class='button'> >> </a>";
+					echo "<a href='?id=".($id+1)."' class='button'> > </a>";
 				}
-				echo '</div>';
+				echo '</div> <div class="clearfix"> </div> ';
 				} else {
 					echo "No volumes found";
+					echo '<div class="col-xs-11 col-sm-12 col-md-12 col-lg-12 frame_footer">';
 				}
 				?>
-				<div class="col-xs-11 col-sm-12 col-md-12 col-lg-12 frame_footer">
 			    	<span>HISTORICAL SOCIETY OF PONDICHERRY</span>
 				</div>
 			</div>
@@ -123,39 +121,33 @@
 			  	 		</tr>
 						<?php 
 						} 
+						echo '</table> </div>';
 						$total=ceil($result_rows1/$limit);
-						echo '<div class="page_button">';
+						echo '<div class="col-xs-11 col-sm-12 col-md-12 col-lg-12 content_footer"> <div class="paginaion_section col-lg-11">';
 						if($id>1)
 						{
-						echo "<a href='?vol_id=".$vol_id."&id=".($id-1)."' class='button'>  << </a>";
+						echo "<a href='?vol_id=".$vol_id."&id=".($id-1)."' class='button'>  < </a>";
+						}
+						for($i=1;$i<=$total;$i++)
+						{
+						if($i==$id) { 
+							echo "<span class='current pagination_list'><a href='#'>".$i."</a></span>"; 
+						}
+						else { 
+							echo "<span class='pagination_list'><a href='?vol_id=".$vol_id."&id=".$i."'>".$i."</a></span>"; 
+						}
 						}
 						if($id!=$total)
 						{
-						echo "<a href='?vol_id=".$vol_id."&id=".($id+1)."' class='button'> >> </a>";
+							echo "<a href='?vol_id=".$vol_id."&id=".($id+1)."' class='button'> > </a>";
 						}
-						echo '<ul class="page">';
-						for($i=1;$i<=$total;$i++)
-						{
-							if($i==$id) 
-							{ 
-								echo "<li class='current'>".$i."</li>"; 
-							}
-							else { 
-								echo "<li><a href='?vol_id=".$vol_id."&id=".$i."'>".$i."</a></li>"; 
-							}
-						}
-						echo '</ul> </div>';
-						} 
-						else {
-							echo '<tr> <td> ';
+						echo '</div> <div class="clearfix"> </div> ';
+						} else {
 							echo "No sections found";
-							echo '</td> </tr>';
+							echo '</table> </div>';
+							echo '<div class="col-xs-11 col-sm-12 col-md-12 col-lg-12 content_footer">';
 						}
 						?>
-			  	 	</table>
-			  	</div>
-			  	<div class="clearfix"> </div>
-				<div class="content_footer">
 				   <span>HISTORICAL SOCIETY OF PONDICHERY</span>
 		    	</div>
 			</div>
@@ -209,47 +201,60 @@
 			  	 		</tr>
 			  	 		<?php
 						} 
+						echo '</table> </div>';
 						$total=ceil($result_rows1/$limit);
-						echo '<div class="page_button">';
+						echo '<div class="col-xs-11 col-sm-12 col-md-12 col-lg-12 content_footer"> <div class="paginaion_section col-lg-11">';
 						if($id>1)
 						{
-						echo "<a href='?sec_id=".$sec_id."&id=".($id-1)."' class='button'>  << </a>";
+						echo "<a href='?sec_id=".$sec_id."&id=".($id-1)."' class='button'>  < </a>";
+						}
+						for($i=1;$i<=$total;$i++)
+						{
+						if($i==$id) { 
+							echo "<span class='current pagination_list'><a href='#'>".$i."</a></span>"; 
+						}
+						else { 
+							echo "<span class='pagination_list'><a href='?sec_id=".$sec_id."&id=".$i."'>".$i."</a></span>"; 
+						}
 						}
 						if($id!=$total)
 						{
-						echo "<a href='?sec_id=".$sec_id."&id=".($id+1)."' class='button'> >> </a>";
+							echo "<a href='?sec_id=".$sec_id."&id=".($id+1)."' class='button'> > </a>";
 						}
-						echo '<ul class="page">';
-						for($i=1;$i<=$total;$i++)
-						{
-							if($i==$id) { 
-								echo "<li class='current'>".$i."</li>"; 
-							}
-							else { 
-								echo "<li><a href='?sec_id=".$sec_id."&id=".$i."'>".$i."</a></li>"; 
-							}
-						}
-						echo '</ul> </div>';
+						echo '</div> <div class="clearfix"> </div> ';
 						} else {
-							echo '<tr> <td> ';
-							echo "No sections found";
-							echo '</td> </tr>';
+							echo "No Articles found";
+							echo '</table> </div>';
+							echo '<div class="col-xs-11 col-sm-12 col-md-12 col-lg-12 content_footer">';
 						}
 						?>
-			  	 	</table>
-			  	</div>
-			  	<div class="clearfix"> </div>
-				<div class="content_footer">
 				   <span>HISTORICAL SOCIETY OF PONDICHERY</span>
 		    	</div>
 			</div>
 			<?php
 			}
+			else if($parent_title == 'about' || $parent_title == 'contact' || $parent_title == 'feedback') { 
+			$today_date=date("Y-m-d");
+			?>
+			<div class="frame_text">
+				<div class="other_pages col-xs-12 col-lg-12">
+					<div class="col-xs-1 col-lg-1"></div>
+					<div class="col-xs-10 col-lg-10">
+						<?php
+						the_content();
+						?>
+					</div>
+					<div class="col-xs-1 col-lg-1"></div>
+				</div>
+			</div>
+			<?php	
+			}
 			else { 
 			$today_date=date("Y-m-d");
 			?>
 			<div class="frame_text">
-				<h1 class="frame_title"> <?php echo $parent_title; ?>  </h1>
+				<h1 class="frame_title"> <?php echo $parent_title; ?>  
+				</h1>
 				<hr />
 				<input type="hidden" value="<?php echo $parent_title; ?>" id="download_article_name" />
 				<input type="hidden" value="<?php echo $today_date ?>" id="download_article_date" />

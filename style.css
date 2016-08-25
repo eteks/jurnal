@@ -126,6 +126,7 @@ header{
 .frame_text{
 	position: relative;
 	color : #614a42;
+	height: 1100px;
  }
 h1,.frame_footer{
 	text-align: center;
@@ -169,10 +170,9 @@ h1,.frame_footer{
 	margin: 0px 5px;
 }
 .frame_footer{
-	position: absolute;
-	bottom: -500px;
-	left: -15px;
-	font-size: 18px;
+	bottom: 100px;
+    font-size: 18px;
+    position: absolute !important;
 }
 /* Footer */
 .menu_footer a{
@@ -272,10 +272,10 @@ h1,.frame_footer{
 	text-decoration: none;
 }
 .content_footer{
-	bottom: -860px;
-    left: 380px;
-    position: absolute;
+	bottom: 100px;
     font-size: 18px;
+    position: absolute !important;
+    text-align: center;
 }
 /* Form Download */
 .form_download{
@@ -443,33 +443,7 @@ input[type="submit"] {
 }
 
 /*Added by thangam*/
-.page_button{
-    position: absolute;
-   right: 160px;
-    top: 850px;
-    font-size: 18px;
-}
-.page_button a {
-	display: inline-block;
-    border-radius: 15px;
-    cursor: pointer;
-    padding: 0.60rem;
-}
-.page_button li{
-		list-style: none;
-		display: inline;
-}
-.page_button  li:hover a  {
- 	background-color: #ff931e;
 
- }
-.button{
-    left: 100px;
-    margin-left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-}
 #contact_form_text{
  width: 350px;
 }
@@ -484,9 +458,34 @@ width:350px;
 }
 
 
-
-
-
-
-
-
+.paginaion_section {
+	text-align: right;
+	margin-bottom: 20px;
+}
+.paginaion_section a {
+    background: #614a42;
+    border-radius: 41%;
+    color: #fff;
+    display: inline-block;
+    height: auto;
+    margin-right: 14px;
+    text-align: center;
+    width: 30px;
+}
+.paginaion_section a:hover {
+    color : #ff931e;
+    background: #614a42;
+}
+.current a{
+	background: #ff931e;
+}
+.other_pages {
+	height: 900px;
+    margin-top: 100px;
+}
+.other_pages h1{
+    margin-bottom: 50px;
+}
+.other_pages form{
+    margin-top: 50px;
+}

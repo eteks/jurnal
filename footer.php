@@ -2,11 +2,11 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-							<ul class="menu_footer">
-								<li class="active"><a href="#">Home</a></li>
-								<li><a href="#" target="_blank">About Us</a></li>
-								<li><a href="#" target="_blank">Contact Us</a></li>
-								<li><a href="#" target="_blank">Feedback</a></li>
+							<ul class="menu_footer active_section">
+								<li data-active="0"><a href="#">Home</a></li>
+								<li data-active="1"><a href="about">About Us</a></li>
+								<li data-active="2"><a href="contact">Contact Us</a></li>
+								<li data-active="3"><a href="feedback">Feedback</a></li>
 							</ul>
 						</div>
 					</div>

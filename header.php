@@ -8,7 +8,7 @@
 		<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>">
 		<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_directory'); ?>/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_directory'); ?>/css/font-awesome.min.css">
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
 		<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_directory'); ?>/css/responsive.css">
 		<?php wp_head();?>
 	</head>
@@ -26,7 +26,7 @@
 								 	<span class="icon-bar"></span> 
 								</button>
 						  		<div class="navbar-brand navbar-left">
-						  			<a href="index.html">
+						  			<a href="volumes">
 						  				<img src="<?php bloginfo('stylesheet_directory');?>/images/logo.png" class="logo_img" />
 						  			</a>
 						  		</div>
@@ -41,11 +41,11 @@
 				      		</div>
 				      		<div class="navbar-collapse collapse">
 		  			  			<span class="header_title hidden-xs">LA SOCIÉTÉ HISTOIRE de PONDICHÉRRY</span>	  
-				  			  	<ul class="nav nav-justified">
-								 	<li class="active"><a href="volumes">Home</a></li>
-									<li><a href="about">About us</a></li>
-									<li><a href="contact">Contact us</a></li>
-									<li><a href="feedback">Feedback</a></li>
+				  			  	<ul class="nav nav-justified active_section">
+								 	<li data-active="0"><a href="volumes">Home</a></li>
+									<li data-active="1"><a href="about">About us</a></li>
+									<li data-active="2"><a href="contact">Contact us</a></li>
+									<li data-active="3"><a href="feedback">Feedback</a></li>
 								</ul>
 					  		</div><!-- /.navbar-collapse --> 
 				  		</nav>
