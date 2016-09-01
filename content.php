@@ -45,7 +45,7 @@
 				<?php
 				}
 				$total=ceil($result_rows1/$limit);
-				echo '<div class="col-xs-11 col-sm-12 col-md-12 col-lg-12 frame_footer"> <div class="paginaion_section col-lg-11">';
+				echo '<div class="col-sm-12 col-md-12 col-lg-12 frame_footer"> <div class="paginaion_section col-lg-11">';
 				if($id>1)
 				{
 				echo "<a href='?id=".($id-1)."' class='button'>  < </a>";
@@ -66,7 +66,7 @@
 				echo '</div> <div class="clearfix"> </div> ';
 				} else {
 					echo "No volumes found";
-					echo '<div class="col-xs-11 col-sm-12 col-md-12 col-lg-12 frame_footer">';
+					echo '<div class="col-sm-12 col-md-12 col-lg-12 frame_footer">';
 				}
 				?>
 			    	<span>HISTORICAL SOCIETY OF PONDICHERRY</span>
@@ -237,6 +237,17 @@
 			$today_date=date("Y-m-d");
 			?>
 			<div class="frame_text">
+				<!--breadcrumb-->
+			  	<div class="breadcrumb-w hidden-xs ">
+					<ul class="breadcrumb">
+						<li>
+							<a href="volumes">Home page</a>
+						</li>
+						<li>
+							<span>List Sections </span>
+						</li>
+					</ul>
+				</div>
 				<div class="other_pages col-xs-12 col-lg-12">
 					<div class="col-xs-1 col-lg-1"></div>
 					<div class="col-xs-10 col-lg-10">
@@ -253,6 +264,17 @@
 			$today_date=date("Y-m-d");
 			?>
 			<div class="frame_text">
+				<!--breadcrumb-->
+			  	<div class="breadcrumb-w hidden-xs ">
+					<ul class="breadcrumb">
+						<li>
+							<a href="volumes">Home page</a>
+						</li>
+						<li>
+							<span>Article No. </span>
+						</li>
+					</ul>
+				</div>
 				<h1 class="frame_title"> <?php echo $parent_title; ?>  
 				</h1>
 				<hr />

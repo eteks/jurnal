@@ -32,7 +32,7 @@
 						  		</div>
 						  		<span class="mobile_title visible-xs">LA SOCIÉTÉ HISTOIRE de PONDICHÉRRY</span>	
 				      		</div>
-				      		<div class="navbar-brand navbar-right language_select hidden-xs">
+				      		<div class="navbar-brand navbar-right language_select">
 			      				<select class="languages" >
 						      		<option value="ENGLISH" selected>ENGLISH</option>
 						      		<option value="FRENCH">FRENCH</option>
@@ -40,7 +40,7 @@
 			      				</select>
 				      		</div>
 				      		<div class="navbar-collapse collapse">
-		  			  			<span class="header_title hidden-xs">LA SOCIÉTÉ HISTOIRE de PONDICHÉRRY</span>	  
+		  			  			<h3 class="header_title hidden-xs">LA SOCIÉTÉ HISTOIRE de PONDICHÉRRY</h3>	  
 				  			  	<ul class="nav nav-justified active_section">
 								 	<li data-active="0"><a href="volumes">Home</a></li>
 									<li data-active="1"><a href="about">About us</a></li>

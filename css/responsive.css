@@ -15,9 +15,8 @@
 }
 @media (max-width: 480px){
 	.mobile_title{
-		font-size: 20px;
+		font-size: 17px;
 		font-family: Roboto;
-		/*line-height: 1.5;*/
 		margin-top: 10px;
 		font-weight: bold;
 		text-align: center;
@@ -28,13 +27,13 @@
 	.navbar-brand {
 	    float: left;
 	    font-size: 18px;
-	    height: 112px !important;
+	   /* height: 112px !important;*/
 	    line-height: 20px;
 	    padding: 0px ! important;
 	}
-	.navbar-toggle{
+	/*.navbar-toggle{
 		margin-top: 66px !important;
-	}
+	}*/
 	.nav-justified {
  	   margin-left: 60px !important;
        width: 65% !important;
@@ -104,9 +103,6 @@
 	}
 }
 @media (min-width: 992px) and (max-width: 1199px){
-	.header_title{
-    	margin-left: 115px !important;
-    }
 	.nav-justified {
 	    margin-left: 125px !important;
 	    width: 60% !important;
@@ -169,21 +165,26 @@
 	    width: 95%;
     }
     .building_pic{
-    	width: 50px;
+    	width: 60px;
     }
     .volume{
     	top: 225px;
     	left: 15px;
     }
     .volume h4{
-		font-size: 14px;
+		font-size: 12px;
 	}
 	.volume h5{
-		font-size: 14px;
+		font-size: 12px;
 		margin: 0px !important;
 	}
 	.frame_footer {
         left: 10px;
+        font-size: 15px;
+    }
+    .paginaion_section {
+        margin-bottom: 20px;
+        text-align: center;
     }
 }
 @media (min-width: 481px) and (max-width: 767px){ 
@@ -202,17 +203,21 @@
     }
     .volume{
     	top: 225px;
-    	left: 50px;
+    	left: 25px;
     }
     .volume h4{
-		font-size: 16px;
+		font-size: 13px;
 	}
 	.volume h5{
-		font-size: 16px;
+		font-size: 13px;
 		margin: 0px !important;
 	}
 	.frame_footer {
-        left: 15px;
+        left: 85px;
+    }
+    .paginaion_section {
+        margin-bottom: 20px;
+        text-align: center;
     }
 }
 @media (min-width: 768px) and (max-width: 991px){ 
@@ -226,6 +231,24 @@
 	    top: 95px;
 	    width: 50%;
 	}
+	.volume {
+	    left: 30px;
+	    margin: 10px;
+	    /*padding: 10px;
+	    position: absolute;*/
+	    top: 315px;
+	}
+	.volume h4{
+		font-size: 14px;
+	}
+	.volume h5{
+		font-size: 14px;
+		margin: 0px !important;
+	}
+	.paginaion_section {
+	    margin: 0 10px 35px 0;
+	    text-align: right;
+	}
 }
 /* CONTENT */
 @media (max-width: 320px){
@@ -234,7 +257,7 @@
 		top: 150px !important;
 	} 
 	.volume_number {
-        left: 95px !important;
+        left: 0px !important;
     }
 	.page_content table {
     	width: 235px !important;
@@ -247,13 +270,6 @@
 	    margin: 20px 10px;
 	    padding: 20px 45px !important;
 	}
-	.content_footer {
-        left: 22px !important;
-        bottom: -755px;
-        text-align: center;
-        font-size: 14px;
-        position:absolute;
-	} 
 }
 @media(max-width: 480px){
 	/* Frame- table content */
@@ -264,8 +280,8 @@
 	    top: 150px;
 	}
 	.volume_number {
-	    font-size: 18px;
-	    left: 122px;
+	    font-size: 12px;
+	    left: 0px;
 	    position: absolute;
 	    top: 215px;
 	}
@@ -279,23 +295,22 @@
 	    top: 300px;
 	} 
 	.content_footer {
-        left: 35px;
-        bottom: -755px;
-        text-align: center;
-        font-size: 14px;
-        position:absolute;
-	} 
+	    bottom: 100px;
+	    font-size: 15px;
+	    left: 10px;
+	    position: absolute !important;
+	}
 }
 @media (min-width: 481px) and (max-width: 767px){
 	.content_subtitle{
 	    font-size: 20px;
-	    left: 235px;
+	    left: 170px;
 	    position: absolute;
 	    top: 150px;
 	} 
 	.volume_number {
 	    font-size: 18px;
-	    left: 275px;
+	    left: 0px;
 	    position: absolute;
 	    top: 215px;
 	}
@@ -304,16 +319,20 @@
 	}
 	.page_content {
 	    font-size: 18px;
-	    left: 180px;
+	    left: 110px;
 	    position: absolute;
 	    top: 300px;
 	} 
 	.content_footer {
-        left: 15px;
-        bottom: -755px;
+        bottom: 100px;
+	    font-size: 15px;
+	    left: 10px;
+	    position: absolute !important;
+    }
+    .paginaion_section {
+        margin-bottom: 20px;
         text-align: center;
-        font-size: 14px;
-	} 
+    } 
 	
 }
 @media (min-width: 768px) and (max-width: 991px)  { 
@@ -327,7 +346,7 @@
 	    top: 120px;
 	}
 	.volume_number {
-	    left: 285px;
+	    left: 0px;
 	    top: 245px;	
 	}
 	.page_content {
@@ -338,9 +357,15 @@
  	   width: 540px;
 	} 
 	.content_footer {
-        left: 180px;
-        bottom: -765px;
-	} 
+        bottom: 150px;
+	    font-size: 18px;
+	    left: 10px;
+	    position: absolute !important;
+    }
+    .paginaion_section {
+        margin-bottom: 20px;
+        text-align: center;
+    }
 }
 @media (min-width: 992px) and (max-width: 1199px){
 	.breadcrumb {
@@ -355,7 +380,7 @@
 	    top: 160px;
 	 }
 	 .volume_number{
-	 	left: 395px;
+	 	left: 0px;
 	    position: absolute;
 	    top: 260px;
 	 }
@@ -365,17 +390,41 @@
 	    top: 340px;
 	}
 	.content_footer {
-	    bottom: -860px;
-	    left: 315px;
-	    position: absolute;
-   }
+        bottom: 150px;
+	    font-size: 18px;
+	    left: 10px;
+	    position: absolute !important;
+    }
+    .paginaion_section {
+        margin-bottom: 20px;
+        text-align: center;
+    }
 }
 
 /* ARTICLE */
 @media (max-width: 480px){
 	.form_download {
     	margin-left: 25px;
-    }	 
+    }
+    .article_content_section_height {
+   height: 650px;
+    	overflow: auto;
+	}
+    .sg-show-popup {
+	    left: 30px;
+	    position: absolute;
+	}	
+	.download {
+	    background-color: #614a42;
+	    border-radius: 15px;
+	    color: #fff;
+	    font-size: 14px;
+	    margin: 0 auto;
+	    padding: 10px 25px;
+	    position: relative;
+	    text-align: center;
+	    width: 70%;
+	} 
 }
 
 /* LIST-ARTICLE */
@@ -780,3 +829,25 @@
 }
 /*****eND OF List Article*****/.
 
+/* Contact US */
+@media (max-width: 480px){
+	#contact_form_text {
+	    width: 220px;
+	    resize:none;
+	}
+	.wpcf7-submit{
+		margin-left: 45px;
+	}
+}	
+
+
+/* Feedback Form */
+
+@media (max-width: 480px){
+
+	#feedback_form_text {
+	    width: 220px;
+	    resize:none;
+	}
+	
+}	

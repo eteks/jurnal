@@ -46,15 +46,15 @@ header{
 
 
 .header_title{
-	font-size: 31px;
+	font-size: 28px;
 	font-family: Myriad Pro;
 	font-weight: bold;
-	margin-left: 114px;
-	
+	margin: 0px;
+        text-align: center;
 }
 .nav-justified {
-    margin-left: 250px !important;
-    margin-top: 20px;
+    margin-left: 210px !important;
+    margin-top: 0px;
     width: 50% !important;
 }
 .navbar-brand{
@@ -65,13 +65,13 @@ header{
 	margin: 50px 0px 0px;
 }
 .languages{
-	padding: 5px;
 	background-color: #755e57;
 	color: #ffffff;
 	border: 1px solid #755e57;
 	border-radius: 2px;
 	font-size: 16px !important;
-}
+        margin: 0px 15px 0px 0px;
+ }
 .language_select select:hover, .language_select option:hover {
 	background-color: #fff;
 	color: #614a42;
@@ -83,9 +83,9 @@ header{
 .navbar {
     border-radius: 4px;
 }
-.navbar-collapse h3{
-	font-weight: bold;
-	word-spacing: 8px;
+.navbar-collapse {
+    margin-left: 100px;
+    margin-top: 19px;
 }
 .nav a{
 	color: #ffffff;
@@ -142,8 +142,8 @@ h1,.frame_footer{
     top: 95px;
 }
 .volume{
-	position: absolute;
-	left: 55px;
+    position: absolute;
+    left: 0px;
     top: 315px;
     padding: 10px;
     margin: 10px;
@@ -438,17 +438,19 @@ input[type="submit"] {
 }
 .sg-show-popup {
 	bottom: 20px;
-    position: absolute;
-    width: 90%;
+    	position: absolute;
+    	width: 90%;
 }
 
 /*Added by thangam*/
 
 #contact_form_text{
- width: 350px;
+     width: 350px;
+     resize:none;
 }
 #feedback_form_text{
-width:350px;
+    width:350px;
+    resize:none;
 }
 .contactus_form_label{
 	margin-bottom:25px !important;
@@ -456,8 +458,6 @@ width:350px;
 .feedback_form_label{
 	margin-bottom:25px !important;
 }
-
-
 .paginaion_section {
 	text-align: right;
 	margin-bottom: 20px;
