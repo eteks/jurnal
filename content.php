@@ -1,7 +1,11 @@
+
 <section>
 	<?php
 		$parent_title = get_the_title($post->post_parent);
 		$args = get_cat_ID($parent_title) ;
+		global $wpdb;
+		$term_taxonomy = $wpdb->prefix.'term_taxonomy';
+		$term = $wpdb->prefix.'terms';
 		if($parent_title == 'volumes') { 
 
 	?>
@@ -18,8 +22,8 @@
 				else{
 					$id=1;
 				}
-				$sql = "SELECT * FROM wp_term_taxonomy where parent='$args' LIMIT $start, $limit";
-				$query = "SELECT * FROM wp_term_taxonomy where parent='$args'";
+				$sql = "SELECT * FROM $term_taxonomy where parent='$args' LIMIT $start, $limit";
+				$query = "SELECT * FROM $term_taxonomy where parent='$args'";
 				$result_rows1 = $wpdb->get_var($query);
 				$result_rows1 = $wpdb->num_rows;
 				$result_rows = $wpdb->get_var($sql);
@@ -82,7 +86,7 @@
 			  	<div class="breadcrumb-w hidden-xs ">
 					<ul class="breadcrumb">
 						<li>
-							<a href="volumes">Home page</a>
+							<a data-active="0" class="breadcrumb_anger" href="volumes">Home page</a>
 						</li>
 						<li>
 							<span>List Sections </span>
@@ -104,8 +108,8 @@
 						else{
 							$id=1;
 						}
-						$sql = "SELECT * FROM wp_term_taxonomy inner join wp_terms on wp_term_taxonomy.term_taxonomy_id=wp_terms.term_id where wp_term_taxonomy.parent='$vol_id'LIMIT $start, $limit";
-						$query = "SELECT * FROM wp_term_taxonomy where parent='$vol_id'";
+						$sql = "SELECT * FROM $term_taxonomy inner join $term on $term_taxonomy.term_taxonomy_id=$term.term_id where $term_taxonomy.parent='$vol_id'LIMIT $start, $limit";
+						$query = "SELECT * FROM $term_taxonomy where parent='$vol_id'";
 						$result_rows1 = $wpdb->get_var($query);
 						$result_rows1 = $wpdb->num_rows;
 						$result_rows = $wpdb->get_var($sql);
@@ -158,11 +162,21 @@
 			$section_name=explode("-",get_cat_name($sec_id));
 			?>
 			<div class="frame_text">
+			<?php
+				$query_breadcrump = "SELECT * FROM $term_taxonomy where term_taxonomy_id='$sec_id'";
+				$result_breadcrump = $wpdb->get_row($query_breadcrump) or die(mysql_error());
+				$vol_bread_id = $result_breadcrump->parent;
+
+
+			?>
 			  	<!--breadcrumb-->
 			  	<div class="breadcrumb-w hidden-xs ">
 					<ul class="breadcrumb">
 						<li>
-							<a href="volumes">Home page</a>
+							<a data-active="0" class="breadcrumb_anger" href="volumes">Home page</a>
+						</li>
+						<li>
+							<a data-active="0" class="breadcrumb_anger" href="sections/?vol_id=<?php echo $vol_bread_id; ?>"> Sections </a>
 						</li>
 						<li>
 							<span>List Articles</span>
@@ -184,8 +198,8 @@
 						else{
 						$id=1;
 						}
-						$sql = "SELECT * FROM wp_term_taxonomy inner join wp_terms on wp_term_taxonomy.term_taxonomy_id=wp_terms.term_id where wp_term_taxonomy.parent='$sec_id'LIMIT $start, $limit";
-						$query = "SELECT * FROM wp_term_taxonomy where parent='$sec_id'";
+						$sql = "SELECT * FROM $term_taxonomy inner join $term on $term_taxonomy.term_taxonomy_id=$term.term_id where $term_taxonomy.parent='$sec_id'LIMIT $start, $limit";
+						$query = "SELECT * FROM $term_taxonomy where parent='$sec_id'";
 						$result_rows1 = $wpdb->get_var($query);
 						$result_rows1 = $wpdb->num_rows;
 						$result_rows = $wpdb->get_var($sql);
@@ -196,7 +210,7 @@
 						$sections=explode("-",$value->name);
   						?>
 						<tr>
-			  	 			<td class="td1"> <a href="<?php echo $sections[0]; ?>"> <?php echo $sections[0]; ?> </a> </td>
+			  	 			<td class="td1"> <a href="<?php echo $sections[0]."?sec_id=".$value->parent; ?>"> <?php echo $sections[0]; ?> </a> </td>
 			  	 			<td class="td2"> <?php echo $sections[1]; ?> </td>
 			  	 		</tr>
 			  	 		<?php
@@ -241,7 +255,7 @@
 			  	<div class="breadcrumb-w hidden-xs ">
 					<ul class="breadcrumb">
 						<li>
-							<a href="volumes">Home page</a>
+							<a data-active="0" class="breadcrumb_anger" href="volumes">Home page</a>
 						</li>
 						<li>
 							<span>List Sections </span>
@@ -261,17 +275,23 @@
 			<?php	
 			}
 			else { 
-			$today_date=date("Y-m-d");
+			$today_date=date("d-m-Y");
 			?>
 			<div class="frame_text">
+			<?php
+				$sec_bread_id = $_GET['sec_id'];
+			?>
 				<!--breadcrumb-->
 			  	<div class="breadcrumb-w hidden-xs ">
 					<ul class="breadcrumb">
 						<li>
-							<a href="volumes">Home page</a>
+							<a data-active="0" class="breadcrumb_anger" href="volumes">Home page</a>
 						</li>
 						<li>
-							<span>Article No. </span>
+							<a data-active="0" class="breadcrumb_anger" href="articles?sec_id=<?php echo $sec_bread_id; ?>" > Articles </a>
+						</li>
+						<li>
+							<span> <?php echo $parent_title; ?>  </span>
 						</li>
 					</ul>
 				</div>

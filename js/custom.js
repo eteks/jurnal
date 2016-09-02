@@ -5,9 +5,9 @@ $('.download').on('click',function() {
 	var download_article_value = $('#download_article_name').val();
 	var download_article_date = $('#download_article_date').val();
 	$('#article_name_box').val(download_article_value);
-	$('#article_name_box').prop('disabled',true);
+	$('#article_name_box').prop('readonly',true);
 	$('#download_popup_date').val(download_article_date);
-	$('#download_popup_date').prop('disabled',true);
+	$('#download_popup_date').prop('readonly',true);
 
 
 });
@@ -29,7 +29,7 @@ $('#download_article_popup').click(function() {
 });
 
 // Active class for navigation
- $('.active_section li').on('click',function() {
+ $('.active_section li, .breadcrumb_anger').on('click',function() {
         var id = $(this).data("active");
         localStorage.setItem("selectedolditem", id);
     });

@@ -1,5 +1,4 @@
 /*
-<<<<<<< HEAD
 Theme Name: journal
 Theme URI: https://journal.com/journal/
 Author: the Etekchnoservices team
@@ -8,15 +7,6 @@ Version: 1.0
 Tags: black, blue, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, featured-images, post-formats
 Text Domain: journal
 */
-
-
-
-
-
-
-
-
-
 body{
 	font-family: Roboto;
 }
@@ -152,7 +142,7 @@ h1,.frame_footer{
 	 border-bottom: 1px solid #ccc;
 }
 .volume h4{
-	font-size: 23px;
+	font-size: 20px;
 }
 .volume h5{
 	font-size: 16px;
@@ -216,6 +206,7 @@ h1,.frame_footer{
 }
 .breadcrumb-w{
 	position: relative;
+	 z-index: 9999;
 }
 .breadcrumb {
 	position: absolute;
@@ -400,8 +391,8 @@ input[type="text"]{
 input {
     height: 35px !important;
     margin-top: 15px !important;
-    max-width: 350px;
-    width : 100%;
+    max-width: 350px !important;
+    width : 100% !important;
 }
 .download {
 	background-color: #614a42;
@@ -453,7 +444,7 @@ input[type="submit"] {
     resize:none;
 }
 .contactus_form_label{
-	margin-bottom:25px !important;
+	margin-bottom:5px !important;
 }
 .feedback_form_label{
 	margin-bottom:25px !important;

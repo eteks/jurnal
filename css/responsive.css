@@ -105,7 +105,7 @@
 @media (min-width: 992px) and (max-width: 1199px){
 	.nav-justified {
 	    margin-left: 125px !important;
-	    width: 60% !important;
+	    width: 62% !important;
 	}
 } 
 /* FOOTER */
@@ -829,21 +829,29 @@
 }
 /*****eND OF List Article*****/.
 
+
+
 /* Contact US */
 @media (max-width: 480px){
 	#contact_form_text {
-	    width: 220px;
+	    width: 185px !important;
 	    resize:none;
 	}
 	.wpcf7-submit{
 		margin-left: 45px;
 	}
 }	
+@media (max-width: 767px){
+	#contact_form_text {
+    	resize: none;
+    	width: 220px;
+	}
+}
 
 
 /* Feedback Form */
 
-@media (max-width: 480px){
+@media (max-width: 767){
 
 	#feedback_form_text {
 	    width: 220px;
@@ -851,3 +859,29 @@
 	}
 	
 }	
+@media (max-width: 480px){
+
+	#feedback_form_text {
+    	resize: none;
+    	width: 185px !important;
+	}
+}	
+
+
+
+/* Fontsize for all pages in responsive */
+
+@media (max-width: 767){
+	h1, .h1 {
+	    font-size: 18px;
+	}
+	h3, .h3 {
+	    font-size: 14px;
+	}
+	body {
+	    
+	    font-size: 10px;
+	    line-height: 1.42857;
+	    text-align: justify;
+	}
+}
