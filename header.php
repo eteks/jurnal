@@ -46,6 +46,7 @@
 									<li data-active="1"><a href="about">About us</a></li>
 									<li data-active="2"><a href="contact">Contact us</a></li>
 									<li data-active="3"><a href="feedback">Feedback</a></li>
+                                                               <li data-active="4"><a href="#">Terms & Conditions</a></li>
 								</ul>
 					  		</div><!-- /.navbar-collapse --> 
 				  		</nav>

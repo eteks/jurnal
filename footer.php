@@ -7,6 +7,7 @@
 								<li data-active="1"><a href="about">About Us</a></li>
 								<li data-active="2"><a href="contact">Contact Us</a></li>
 								<li data-active="3"><a href="feedback">Feedback</a></li>
+								<li data-active="4"><a href="feedback">Terms & Conditions</a></li>
 							</ul>
 						</div>
 					</div>

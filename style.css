@@ -43,9 +43,9 @@ header{
         text-align: center;
 }
 .nav-justified {
-    margin-left: 210px !important;
+    margin-left: 135px !important;
     margin-top: 0px;
-    width: 50% !important;
+    width: 70% !important;
 }
 .navbar-brand{
 	padding: 0px !important;
@@ -60,7 +60,7 @@ header{
 	border: 1px solid #755e57;
 	border-radius: 2px;
 	font-size: 16px !important;
-        margin: 0px 15px 0px 0px;
+        margin: 0px 12px 0px 0px;
  }
 .language_select select:hover, .language_select option:hover {
 	background-color: #fff;
@@ -80,6 +80,15 @@ header{
 .nav a{
 	color: #ffffff;
 	font-size: 18px;
+}
+.nav > li > a {
+    display: block;
+    padding: 10px 25px !important;
+    position: relative;
+}
+.nav-justified > li {
+    display: table-cell;
+    width: 0% !important;
 }
 .nav > li > a:hover, .nav > li > a:focus{
 	color: #ff931e !important;
@@ -182,7 +191,7 @@ h1,.frame_footer{
 }
 .menu_footer {
 	text-align: center !important;
-	margin-left: 190px;
+	margin-left: 60px;
 	position: relative;
 }
 .active {
@@ -430,7 +439,7 @@ input[type="submit"] {
 .sg-show-popup {
 	bottom: 20px;
     	position: absolute;
-    	width: 90%;
+    	width: 88%;
 }
 
 /*Added by thangam*/
@@ -480,3 +489,14 @@ input[type="submit"] {
 .other_pages form{
     margin-top: 50px;
 }
+
+/* Akila Added */
+
+.download_article_popup a:hover, .telecharger a:hover, .telecharger_dwnld a:hover, .download:hover {
+    background-color: #ff931e;
+    cursor: pointer;
+}
+
+
+
+
