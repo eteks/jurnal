@@ -1,17 +1,24 @@
 
 <section>
 	<?php
-		$parent_title = get_the_title($post->post_parent);
-		$args = get_cat_ID($parent_title) ;
-		global $wpdb;
-		$term_taxonomy = $wpdb->prefix.'term_taxonomy';
-		$term = $wpdb->prefix.'terms';
-		if($parent_title == 'volumes') { 
+	global $post;
+	$parent_title = get_the_title($post->post_parent);
+	
+	$args = get_cat_ID($parent_title) ;
+	$term_taxonomy = $wpdb->prefix.'term_taxonomy';
+	$term = $wpdb->prefix.'terms';
+	echo '<div class="none_language">';
+	$parent_slug = $post->post_name;
+	echo '</div>';
+
+	if($parent_slug == 'home' || $parent_slug == 'volumes' ) { 
 
 	?>
-			<div class="frame_text">
-				<h1 class="frame_title">REVUE HISTORIQUE<br> de<br> PONDICHÉRY</h1>
-				<?php
+		<div class="frame_text">
+			<h1 class="frame_title">REVUE HISTORIQUE<br> de<br> PONDICHÉRY</h1>
+			<?php
+				the_content();
+			
 				$start=0;
 				$limit=5;
 				if(isset($_GET['id']))
@@ -22,8 +29,8 @@
 				else{
 					$id=1;
 				}
-				$sql = "SELECT * FROM $term_taxonomy where parent='$args' LIMIT $start, $limit";
-				$query = "SELECT * FROM $term_taxonomy where parent='$args'";
+				$sql = "SELECT * FROM $term_taxonomy where parent='$args' and taxonomy='category'  LIMIT $start, $limit";
+				$query = "SELECT * FROM $term_taxonomy where parent='$args' and taxonomy='category'";
 				$result_rows1 = $wpdb->get_var($query);
 				$result_rows1 = $wpdb->num_rows;
 				$result_rows = $wpdb->get_var($sql);
@@ -31,22 +38,22 @@
 				if($result_rows>0) {
 				$result = $wpdb->get_results($sql) or die(mysql_error());
 				foreach ($result as $key => $value) { 
-				?>
-		        <div class="volume col-xs-10 col-lg-12">
+			?>
+			    <div class="volume col-xs-10 col-lg-12">
 					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">	
- 		   	 			<img src="<?php bloginfo('stylesheet_directory');?>/images/building.png" alt="Building_picture" class="fr building_pic">
- 		   			</div>
- 		   			<div class="col-xs-8 col-sm-6 col-md-8 col-lg-8 no_pad ">	
-		   				<h4 class="fl"> <?php echo get_cat_name($value->term_id); ?> </h4>
-		   			</div>
-		   			<div class="col-xs-8 col-sm-6 col-md-8 col-lg-8 no_pad ">	
-		   				<h5 class="fl">
-		   					<a href="sections/?vol_id=<?php echo $value->term_id; ?>">Read It  <i class="fa fa-angle-right" aria-hidden="true"> </i></a>
-		   				</h5>
-		   			</div>
-		   			<div class="clearfix"> </div>
-		    	</div>
-				<?php
+	 		   	 		<img src="<?php bloginfo('stylesheet_directory');?>/images/building.png" alt="Building_picture" class="fr building_pic">
+	 		   		</div>
+	 		   		<div class="col-xs-8 col-sm-6 col-md-8 col-lg-8 no_pad ">	
+			   			<h4 class="fl"> <?php echo get_cat_name($value->term_id); ?> </h4>
+			   		</div>
+			   		<div class="col-xs-8 col-sm-6 col-md-8 col-lg-8 no_pad ">	
+			   			<h5 class="fl">
+			   				<a href="sections/?vol_id=<?php echo $value->term_id; ?>">Read It  <i class="fa fa-angle-right" aria-hidden="true"> </i></a>
+			   			</h5>
+			   		</div>
+			   		<div class="clearfix"> </div>
+			    </div>
+			<?php
 				}
 				$total=ceil($result_rows1/$limit);
 				echo '<div class="col-sm-12 col-md-12 col-lg-12 frame_footer"> <div class="paginaion_section col-lg-11">';
@@ -78,7 +85,7 @@
 			</div>
 			<?php	
 			}
-			else if($parent_title == 'sections') { 
+			else if($parent_slug == 'sections') { 
 			$vol_id = $_GET['vol_id'];
 			?>
 			<div class="frame_text">
@@ -93,10 +100,13 @@
 						</li>
 					</ul>
 				</div>
+				<?php
+					the_content(); 
+				?>
 				<h1 class="content_subtitle">TABLE DES MATIÈRES</h1>
 			  	<h5 class="volume_number"> <?php echo get_cat_name($vol_id); ?> </h5>
 			  	<div class="page_content">
-			  	 	<table class="table_content">
+			  	 	<table class="table_content none_language">
 			  	 		<?php
 			  	 		$start=0;
 						$limit=5;
@@ -108,8 +118,8 @@
 						else{
 							$id=1;
 						}
-						$sql = "SELECT * FROM $term_taxonomy inner join $term on $term_taxonomy.term_taxonomy_id=$term.term_id where $term_taxonomy.parent='$vol_id'LIMIT $start, $limit";
-						$query = "SELECT * FROM $term_taxonomy where parent='$vol_id'";
+						$sql = "SELECT * FROM $term_taxonomy inner join $term on $term_taxonomy.term_taxonomy_id=$term.term_id where $term_taxonomy.parent='$vol_id' and $term_taxonomy.taxonomy='category' LIMIT $start, $limit";
+						$query = "SELECT * FROM $term_taxonomy where parent='$vol_id' and taxonomy='category'";
 						$result_rows1 = $wpdb->get_var($query);
 						$result_rows1 = $wpdb->num_rows;
 						$result_rows = $wpdb->get_var($sql);
@@ -157,13 +167,14 @@
 			</div>
 			<?php
 			}
-			else if($parent_title == 'articles') { 
+			else if($parent_slug == 'articles') { 
 			$sec_id = $_GET['sec_id'];
 			$section_name=explode("-",get_cat_name($sec_id));
 			?>
 			<div class="frame_text">
 			<?php
-				$query_breadcrump = "SELECT * FROM $term_taxonomy where term_taxonomy_id='$sec_id'";
+				the_content(); 
+				$query_breadcrump = "SELECT * FROM $term_taxonomy where term_taxonomy_id='$sec_id' and taxonomy='category'";
 				$result_breadcrump = $wpdb->get_row($query_breadcrump) or die(mysql_error());
 				$vol_bread_id = $result_breadcrump->parent;
 
@@ -198,8 +209,8 @@
 						else{
 						$id=1;
 						}
-						$sql = "SELECT * FROM $term_taxonomy inner join $term on $term_taxonomy.term_taxonomy_id=$term.term_id where $term_taxonomy.parent='$sec_id'LIMIT $start, $limit";
-						$query = "SELECT * FROM $term_taxonomy where parent='$sec_id'";
+						$sql = "SELECT * FROM $term_taxonomy inner join $term on $term_taxonomy.term_taxonomy_id=$term.term_id where $term_taxonomy.parent='$sec_id' and $term_taxonomy.taxonomy='category' LIMIT $start, $limit";
+						$query = "SELECT * FROM $term_taxonomy where parent='$sec_id' and taxonomy='category'";
 						$result_rows1 = $wpdb->get_var($query);
 						$result_rows1 = $wpdb->num_rows;
 						$result_rows = $wpdb->get_var($sql);
@@ -247,8 +258,7 @@
 			</div>
 			<?php
 			}
-			else if($parent_title == 'about' || $parent_title == 'contact' || $parent_title == 'feedback') { 
-			$today_date=date("Y-m-d");
+			else if($parent_slug == 'about' || $parent_slug == 'feedback' || $parent_slug == 'termscon') { 
 			?>
 			<div class="frame_text">
 				<!--breadcrumb-->
@@ -258,7 +268,7 @@
 							<a data-active="0" class="breadcrumb_anger" href="volumes">Home page</a>
 						</li>
 						<li>
-							<span>List Sections </span>
+							<span> <?php echo $parent_title; ?> </span>
 						</li>
 					</ul>
 				</div>
@@ -268,6 +278,49 @@
 						<?php
 						the_content();
 						?>
+					</div>
+					<div class="col-xs-1 col-lg-1"></div>
+				</div>
+			</div>
+			<?php	
+			}
+			else if($parent_slug == 'contact') { 
+			?>
+			<div class="frame_text">
+				<!--breadcrumb-->
+			  	<div class="breadcrumb-w hidden-xs ">
+					<ul class="breadcrumb">
+						<li>
+							<a data-active="0" class="breadcrumb_anger" href="volumes">Home page</a>
+						</li>
+						<li>
+							<span> <?php echo $parent_title; ?> </span>
+						</li>
+					</ul>
+				</div>
+				<div class="other_pages col-xs-12 col-lg-12">
+					<div class="col-xs-1 col-lg-1"></div>
+					<div class="col-xs-10 col-lg-10 contact_us_form">
+						<div class="form_section">
+							<?php
+								the_content();
+							?>
+						</div>
+						<div class="map_section">
+							<div id="map_area">
+								<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD29eCm_1Q3IlgBZ60IoY-Cj3l8AMlmgoY&callback=initMap" async defer> </script>
+								<script>
+									var map; function initMap() { 
+              							var lattitude = $() 
+          								map = new google.maps.Map(document.getElementById("map_area"), {
+	            							center: {lat: 11.942160 , lng: 79.795164},
+	              							zoom: 17
+            							});
+            						}
+            					</script>
+							</div>
+						</div>
+						<div class="cb"> </div>
 					</div>
 					<div class="col-xs-1 col-lg-1"></div>
 				</div>

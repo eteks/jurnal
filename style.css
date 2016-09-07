@@ -43,9 +43,9 @@ header{
         text-align: center;
 }
 .nav-justified {
-    margin-left: 135px !important;
-    margin-top: 0px;
-    width: 70% !important;
+    margin-left: 79px !important;
+    margin-top: 0;
+    width: 76% !important;
 }
 .navbar-brand{
 	padding: 0px !important;
@@ -191,7 +191,7 @@ h1,.frame_footer{
 }
 .menu_footer {
 	text-align: center !important;
-	margin-left: 60px;
+	margin-left: 30px;
 	position: relative;
 }
 .active {
@@ -259,7 +259,7 @@ h1,.frame_footer{
 	width: 580px;
 }
 .table_content td{
-	padding: 20px 0 20px 10px;
+	padding: 17px 0 20px 10px;
 	margin: 20px  30px;
 	border-bottom: 1px solid #ccc;
 }
@@ -441,7 +441,23 @@ input[type="submit"] {
     	position: absolute;
     	width: 88%;
 }
-
+.contact_us_form form {
+	text-align: left !important;
+	float: left;
+}
+.cb {
+	clear : both;
+}
+.map_section {
+	float: right;
+    height: 500px;
+    margin-top: 60px;
+    width: 450px;
+}
+#map_area {
+	height: 100%;
+	width: 100%;
+}
 /*Added by thangam*/
 
 #contact_form_text{

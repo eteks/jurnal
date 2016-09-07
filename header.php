@@ -1,7 +1,7 @@
 <!Doctype html>
 <html lang="en-US">
 	<head>
-		<title> Journal </title>
+		<title> <?php bloginfo( 'name' ); ?> - <?php echo bloginfo( 'description' ); ?> </title>
 	 	<meta charset="utf-8">
 	 	<meta name="viewport" content="width=device-width, intial-scale=1.0, maximum-scale=3.0, user-scalable=no">
 		<!---css -->
@@ -13,6 +13,22 @@
 		<?php wp_head();?>
 	</head>
 	<body>
+		<?php
+			global $wpdb;
+			$media = $wpdb->prefix.'posts';
+			$query_logo = "SELECT * FROM  $media WHERE post_title = 'logo'";
+			$result_logo_rows = $wpdb->get_var($query_logo);
+			if($result_logo_rows > 0) {
+				$result_logo = $wpdb->get_results($query_logo) or die(mysql_error());
+			 	foreach ($result_logo as $key => $value) { 
+					$logo_path = $value->guid;
+					$logo_status = 1;
+				}
+			}
+			else {
+				$logo_status = 0;
+			}
+		?>
 		<header>
 			<section class="top_header">	
 		 		<div class="container">
@@ -27,27 +43,37 @@
 								</button>
 						  		<div class="navbar-brand navbar-left">
 						  			<a href="volumes">
-						  				<img src="<?php bloginfo('stylesheet_directory');?>/images/logo.png" class="logo_img" />
+
+						  				<?php
+						  					if($logo_status==1) {
+						  						echo '<img src="'.$logo_path.'" class="logo_img" />';
+						  					}
+						  					else { ?>
+						  						<img src="<?php bloginfo('stylesheet_directory');?>/images/logo.png" class="logo_img" />
+						  					<?php
+						  					}	
+						  				?>
+						  				
 						  			</a>
 						  		</div>
-						  		<span class="mobile_title visible-xs">LA SOCIÉTÉ HISTOIRE de PONDICHÉRRY</span>	
+						  		<span class="mobile_title visible-xs none_language">LA SOCIÉTÉ HISTOIRE de PONDICHÉRY</span>	
 				      		</div>
 				      		<div class="navbar-brand navbar-right language_select">
-			      				<select class="languages" >
+			      				<!-- <select class="languages" >
 						      		<option value="ENGLISH" selected>ENGLISH</option>
 						      		<option value="FRENCH">FRENCH</option>
-						      		<option value="TAMIL">TAMIL</option>
-			      				</select>
+			      				</select> -->
 				      		</div>
 				      		<div class="navbar-collapse collapse">
-		  			  			<h3 class="header_title hidden-xs">LA SOCIÉTÉ HISTOIRE de PONDICHÉRRY</h3>	  
-				  			  	<ul class="nav nav-justified active_section">
-								 	<li data-active="0"><a href="volumes">Home</a></li>
-									<li data-active="1"><a href="about">About us</a></li>
-									<li data-active="2"><a href="contact">Contact us</a></li>
-									<li data-active="3"><a href="feedback">Feedback</a></li>
-                                                               <li data-active="4"><a href="#">Terms & Conditions</a></li>
-								</ul>
+		  			  			<h3 class="header_title hidden-xs none_language">LA SOCIÉTÉ HISTOIRE de PONDICHÉRY</h3>	  
+				  			  	<?php
+				  			  		if ( has_nav_menu( 'primary' ) ) : 
+										wp_nav_menu( array(
+											'theme_location' => 'primary',
+										 	'items_wrap' => '<ul class="nav nav-justified active_section">%3$s</ul>'
+										)); 
+	 								endif; 
+	 							?>
 					  		</div><!-- /.navbar-collapse --> 
 				  		</nav>
 		        	</div>
