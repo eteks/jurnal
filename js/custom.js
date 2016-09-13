@@ -8,22 +8,22 @@ $('.download').on('click',function() {
   $('#article_name_box').prop('readonly',true);
   $('#download_popup_date').val(download_article_date);
   $('#download_popup_date').prop('readonly',true);
-
-
 });
 
 // Add data-active value to each li
 $('.active_section').each(function() {
-  var data_id = 0;
+  var data_id = 1;
   if(!$(this).hasClass('data-id-actived')) {
     $(this).addClass('data-id-actived')
-    $(this).children('li').each(function() {
+    $(this).children('li').find('a').each(function() {
         $(this).attr('data-active',data_id);
         data_id++;
     });  
   }
 });
 
+$('.custom_logo_link a').addClass('breadcrumb_anger');
+$('.custom_logo_link a').attr('data-active','1');
 
 // To add restriction
 $('.article_content_section').addClass('article_content_section_height');
@@ -35,31 +35,27 @@ $('#message_box_popup').prop('rows','5');
 // To download pdf
 $('#download_article_popup').click(function() {
   setTimeout(function(){
-  if(!$('.wpcf7-form').hasClass('invalid')) {
+  if(!$('.wpcf7-form').hasClass('invalid') && !$('.wpcf7-form').hasClass('spam')) {
     $('a#download_pdf_link')[0].click();
   }
 }, 3000);
 });
 
 // Active class for navigation
-$('.active_section li, .breadcrumb_anger').on('click',function() {
+$('.active_section li a, .breadcrumb_anger').on('click',function() {
   var id = $(this).data("active");
+  localStorage.removeItem('selectedolditem');
   localStorage.setItem("selectedolditem", id);
 });
-// To add active class for navigation (home, about, contact)
-$('.active_section li').on('click',function() { // click event
-  var id = $(this).data("active"); // get data value from current navigation
-  localStorage.setItem("selectedolditem", id); // store current navigation's datavalue to localStorage
-});
+
 var selectedolditem = localStorage.getItem('selectedolditem'); // fetch selected navigation's datavalue from localStorage
 if (selectedolditem != null) { // check selected navigation's datavalue is null or not
-  $('.active_section li').removeClass('active');
-  $('.active_section').find('li[data-active='+selectedolditem+']').addClass('active'); // add activeclass for selected navigation based on its datavalue
+  $('.active_section li a').removeClass('active');
+  $('.active_section').find('li a[data-active='+selectedolditem+']').addClass('active'); // add activeclass for selected navigation based on its datavalue
 }
 else {
   $('.active_section li:first').addClass('active'); // add activeclass for homepage
 }
 // localStorage.removeItem('selectedolditem');
-
 
 });

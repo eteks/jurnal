@@ -6,29 +6,12 @@
 	 	<meta name="viewport" content="width=device-width, intial-scale=1.0, maximum-scale=3.0, user-scalable=no">
 		<!---css -->
 		<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>">
-		<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_directory'); ?>/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_directory'); ?>/css/font-awesome.min.css">
-		<!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_directory'); ?>/css/responsive.css">
 		<?php wp_head();?>
 	</head>
 	<body>
-		<?php
-			global $wpdb;
-			$media = $wpdb->prefix.'posts';
-			$query_logo = "SELECT * FROM  $media WHERE post_title = 'logo'";
-			$result_logo_rows = $wpdb->get_var($query_logo);
-			if($result_logo_rows > 0) {
-				$result_logo = $wpdb->get_results($query_logo) or die(mysql_error());
-			 	foreach ($result_logo as $key => $value) { 
-					$logo_path = $value->guid;
-					$logo_status = 1;
-				}
-			}
-			else {
-				$logo_status = 0;
-			}
-		?>
 		<header>
 			<section class="top_header">	
 		 		<div class="container">
@@ -41,22 +24,15 @@
 								 	<span class="icon-bar"></span> 
 								 	<span class="icon-bar"></span> 
 								</button>
-						  		<div class="navbar-brand navbar-left">
-						  			<a href="volumes">
+						  		<div class="navbar-brand navbar-left custom_logo_link">
+						  			 <?php
+						  			 	if ( function_exists( 'the_custom_logo' ) ) {
+										    the_custom_logo();
+										}
 
-						  				<?php
-						  					if($logo_status==1) {
-						  						echo '<img src="'.$logo_path.'" class="logo_img" />';
-						  					}
-						  					else { ?>
-						  						<img src="<?php bloginfo('stylesheet_directory');?>/images/logo.png" class="logo_img" />
-						  					<?php
-						  					}	
-						  				?>
-						  				
-						  			</a>
-						  		</div>
-						  		<span class="mobile_title visible-xs none_language">LA SOCIÉTÉ HISTOIRE de PONDICHÉRY</span>	
+									?>	
+		  				  		</div>
+						  		<span class="mobile_title visible-xs none_language"><?php bloginfo( 'name' ); ?></span>	
 				      		</div>
 				      		<div class="navbar-brand navbar-right language_select">
 			      				<!-- <select class="languages" >
@@ -65,7 +41,7 @@
 			      				</select> -->
 				      		</div>
 				      		<div class="navbar-collapse collapse">
-		  			  			<h3 class="header_title hidden-xs none_language">LA SOCIÉTÉ HISTOIRE de PONDICHÉRY</h3>	  
+		  			  			<h3 class="header_title hidden-xs none_language"><?php bloginfo( 'name' ); ?></h3>	  
 				  			  	<?php
 				  			  		if ( has_nav_menu( 'primary' ) ) : 
 										wp_nav_menu( array(

@@ -1,4 +1,3 @@
-
 <section>
 	<?php
 	global $post;
@@ -41,7 +40,7 @@
 			?>
 			    <div class="volume col-xs-10 col-lg-12">
 					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">	
-	 		   	 		<img src="<?php bloginfo('stylesheet_directory');?>/images/building.png" alt="Building_picture" class="fr building_pic">
+	 		   	 		<img src="<?php bloginfo('stylesheet_directory');?>/images/volume.png" alt="Building_picture" class="fr building_pic">
 	 		   		</div>
 	 		   		<div class="col-xs-8 col-sm-6 col-md-8 col-lg-8 no_pad ">	
 			   			<h4 class="fl"> <?php echo get_cat_name($value->term_id); ?> </h4>
@@ -93,7 +92,7 @@
 			  	<div class="breadcrumb-w hidden-xs ">
 					<ul class="breadcrumb">
 						<li>
-							<a data-active="0" class="breadcrumb_anger" href="volumes">Home page</a>
+							<a data-active="1" class="breadcrumb_anger" href="volumes">Home page</a>
 						</li>
 						<li>
 							<span>List Sections </span>
@@ -162,7 +161,7 @@
 							echo '<div class="col-xs-11 col-sm-12 col-md-12 col-lg-12 content_footer">';
 						}
 						?>
-				   <span>HISTORICAL SOCIETY OF PONDICHERY</span>
+				   <span>HISTORICAL SOCIETY OF PONDICHERRY</span>
 		    	</div>
 			</div>
 			<?php
@@ -184,10 +183,10 @@
 			  	<div class="breadcrumb-w hidden-xs ">
 					<ul class="breadcrumb">
 						<li>
-							<a data-active="0" class="breadcrumb_anger" href="volumes">Home page</a>
+							<a data-active="1" class="breadcrumb_anger" href="volumes">Home page</a>
 						</li>
 						<li>
-							<a data-active="0" class="breadcrumb_anger" href="sections/?vol_id=<?php echo $vol_bread_id; ?>"> Sections </a>
+							<a data-active="1" class="breadcrumb_anger" href="sections/?vol_id=<?php echo $vol_bread_id; ?>"> Sections </a>
 						</li>
 						<li>
 							<span>List Articles</span>
@@ -253,7 +252,7 @@
 							echo '<div class="col-xs-11 col-sm-12 col-md-12 col-lg-12 content_footer">';
 						}
 						?>
-				   <span>HISTORICAL SOCIETY OF PONDICHERY</span>
+				   <span>HISTORICAL SOCIETY OF PONDICHERRY</span>
 		    	</div>
 			</div>
 			<?php
@@ -265,7 +264,7 @@
 			  	<div class="breadcrumb-w hidden-xs ">
 					<ul class="breadcrumb">
 						<li>
-							<a data-active="0" class="breadcrumb_anger" href="volumes">Home page</a>
+							<a data-active="1" class="breadcrumb_anger" href="volumes">Home page</a>
 						</li>
 						<li>
 							<span> <?php echo $parent_title; ?> </span>
@@ -291,7 +290,7 @@
 			  	<div class="breadcrumb-w hidden-xs ">
 					<ul class="breadcrumb">
 						<li>
-							<a data-active="0" class="breadcrumb_anger" href="volumes">Home page</a>
+							<a data-active="1" class="breadcrumb_anger" href="volumes">Home page</a>
 						</li>
 						<li>
 							<span> <?php echo $parent_title; ?> </span>
@@ -338,10 +337,10 @@
 			  	<div class="breadcrumb-w hidden-xs ">
 					<ul class="breadcrumb">
 						<li>
-							<a data-active="0" class="breadcrumb_anger" href="volumes">Home page</a>
+							<a data-active="1" class="breadcrumb_anger" href="volumes">Home page</a>
 						</li>
 						<li>
-							<a data-active="0" class="breadcrumb_anger" href="articles?sec_id=<?php echo $sec_bread_id; ?>" > Articles </a>
+							<a data-active="1" class="breadcrumb_anger" href="articles?sec_id=<?php echo $sec_bread_id; ?>" > Articles </a>
 						</li>
 						<li>
 							<span> <?php echo $parent_title; ?>  </span>

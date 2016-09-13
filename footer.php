@@ -15,8 +15,8 @@
 			   	</div>
 		    </section>
 		</div>
-	    <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery-1.12.0.js"></script>
-	    <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/bootstrap.min.js"></script>
+	    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+	    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	    <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/custom.js"></script>
 		<?php wp_footer(); ?> 	
 	</body>

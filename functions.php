@@ -20,3 +20,25 @@ register_nav_menus( array(
 		'footer'  => __( 'Footer Menu', 'journal' ),
 ) );
 
+add_theme_support( 'custom-logo', array(
+		'height'      => 248,
+		'width'       => 248,
+		'flex-height' => true,
+) );
+
+
+/**
+* Create Logo Setting and Upload Control
+*/
+// function volume_logo($wp_customize) {
+// // add a setting for the site logo
+// $wp_customize->add_setting('your_theme_logo');
+// // Add a control to upload the logo
+// $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'your_theme_logo',
+// array(
+// 'label' => 'Volume Logo',
+// 'section' => 'title_tagline',
+// 'settings' => 'your_theme_logo',
+// ) ) );
+// }
+// add_action('customize_register', 'volume_logo');

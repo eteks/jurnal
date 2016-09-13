@@ -16,6 +16,14 @@ body{
 a {
 	outline: medium none;
 }
+.active_section a:focus {
+	color : #614a42 !important;
+	text-decoration: none !important;
+	outline: medium none !important;
+}
+a:hover {
+	text-decoration: none !important;
+}
 /* reusable css */
 .fl{
 	float: left;
@@ -33,7 +41,11 @@ header{
 	background-color: #614a42;
 	color: #ffffff;
 }
-
+.active_section li {
+	display: inline-block !important;
+	width: auto !important;
+	margin: 20px 20px 0 0;
+}
 
 .header_title{
 	font-size: 28px;
@@ -43,9 +55,7 @@ header{
         text-align: center;
 }
 .nav-justified {
-    margin-left: 79px !important;
-    margin-top: 0;
-    width: 76% !important;
+	text-align: center;
 }
 .navbar-brand{
 	padding: 0px !important;
@@ -79,16 +89,12 @@ header{
 }
 .nav a{
 	color: #ffffff;
-	font-size: 18px;
+	font-size: 16px;
 }
 .nav > li > a {
     display: block;
-    padding: 10px 25px !important;
+    padding: 0 !important;
     position: relative;
-}
-.nav-justified > li {
-    display: table-cell;
-    width: 0% !important;
 }
 .nav > li > a:hover, .nav > li > a:focus{
 	color: #ff931e !important;
@@ -176,7 +182,7 @@ h1,.frame_footer{
 /* Footer */
 .menu_footer a{
 	text-decoration: none;
-	font-size: 24px;
+	font-size: 20px;
 	color: #614a42;
 }
 .menu_footer a:hover{
@@ -184,18 +190,22 @@ h1,.frame_footer{
 	color: #ff931e;
 }
 .menu_footer li {
-	float: left;
 	list-style: none;
-	padding: 20px;
-	margin: 10px 15px;
+	display: inline-block;
+	padding: 14px;
 }
 .menu_footer {
 	text-align: center !important;
-	margin-left: 30px;
 	position: relative;
+	padding: 0;
 }
 .active {
 	font-weight: bold;
+	color: #ff931e !important;
+	background: rgba(0,0,0,0) url(images/highlight_active_menu_header.png) no-repeat center bottom;
+}
+.menu_footer .active {
+	background: rgba(0,0,0,0) url(images/highlight_active_menu_footer.png) no-repeat center bottom;
 }
 .menu_footer a:hover{
 	background: rgba(0,0,0,0) url(images/highlight_active_menu_footer.png) no-repeat center bottom;
@@ -404,7 +414,7 @@ input {
     width : 100% !important;
 }
 .download {
-	background-color: #614a42;
+    background-color: #614a42;
     border-radius: 15px;
     color: #fff;
     font-size: 18px;
@@ -501,18 +511,122 @@ input[type="submit"] {
 }
 .other_pages h1{
     margin-bottom: 50px;
+    margin-top: 45px;
 }
 .other_pages form{
-    margin-top: 50px;
+    margin-top: 25px;
+}
+.other_pages .wpcf7-response-output{
+    margin: 1em 0.5em !important; 
 }
 
 /* Akila Added */
 
-.download_article_popup a:hover, .telecharger a:hover, .telecharger_dwnld a:hover, .download:hover {
+.download_article_popup a:hover, .telecharger a:hover, .telecharger_dwnld a:hover, .download:hover, .wpcf7-submit:hover {
     background-color: #ff931e;
     cursor: pointer;
+}
+.feedback_captcha {
+    margin: 0 auto;
+    width: 38%;
+}
+#sgcboxOverlay {
+	z-index: 99999 !important;
+}
+#sgcolorbox {
+	z-index: 99999 !important;
+}
+.download_captcha {
+    margin: 0 auto;
+    width: 57%;
 }
 
 
 
+/* Responsive */
 
+@media(max-width: 767px) {
+	.feedback_captcha {	
+		border-right: 1px solid gray;
+		margin: 0 auto;
+		overflow: hidden;
+		width: 100%;
+	}
+	.download_captcha {	
+		border-right: 1px solid gray;
+		margin: 0 auto;
+		overflow: hidden;
+		width: 100%;
+	}
+	.contact_captcha {	
+		border-right: 1px solid gray;
+		margin: 0 auto;
+		overflow: hidden;
+		width: 100%;
+                font-size: 10px;
+	}
+	#message_box_popup {
+		width: 86%;
+	}
+	#contact_form_text {
+    		resize: none;
+   		width: 100% !important;
+		height: 60px;
+	}
+	.contact_us_form form {
+    		float: none;
+    		text-align: left !important;
+	}
+        .other_pages .contactus_form_label {
+             margin-bottom: 0px !important;
+        }
+        #sgcboxContent {
+		width : 335px !important;
+	}  
+	#sgcolorbox {
+		width : 335px !important;
+	}
+       .map_section {
+           float: right;
+           height: 200px;
+           margin-top: 60px;
+           width: 100%;
+      }
+      .map_section {
+          float: right;
+          height: 200px;
+          margin-top: 20px;
+          width: 100%;
+     }
+     .other_pages .wpcf7-response-output {
+          font-size: 10px !important;
+     }
+     span.wpcf7-not-valid-tip {
+         color: #f00;
+         display: block;
+        font-size: 10px;
+     }
+     .other_pages {
+          font-size: 12px;
+    }
+    .other_pages .wpcf7-submit{
+        font-size: 14px;
+    }
+    #feedback_form_text {
+      resize: none;
+      width: 220px;
+   }
+   
+        
+ 	
+}
+ 
+@media(max-width:320px) {
+	#sgcboxContent {
+		width : 300px !important;
+	}  
+	#sgcolorbox {
+		width : 300px !important;
+	}
+}
+ 
