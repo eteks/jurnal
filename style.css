@@ -1,3 +1,4 @@
+
 /*
 Theme Name: New-Journal
 Theme URI: http://www.revuehistoriquedepondichery.org/demo/
@@ -545,12 +546,13 @@ input[type="submit"] {
 	width: 100%;
 }
 /*Added by thangam*/
+
 #contact_form_text{
-     width: 325px;
+     width: 350px;
      resize:none;
 }
 #feedback_form_text{
-    width:325px;
+    width:350px;
     resize:none;
 }
 .contactus_form_label{
@@ -622,7 +624,7 @@ input[type="submit"] {
 /* Responsive */
 
 @media(max-width: 767px) {
-        .feedback_captcha {	
+	.feedback_captcha {	
 		border-right: 1px solid gray;
 		margin: 0 auto;
 		overflow: hidden;
@@ -643,6 +645,11 @@ input[type="submit"] {
 	}
 	#message_box_popup {
 		width: 86%;
+	}
+	#contact_form_text {
+    		resize: none;
+   		width: 100% !important;
+		height: 60px;
 	}
 	.contact_us_form form {
     		float: none;
@@ -712,8 +719,8 @@ input[type="submit"] {
     color: #614a42;
 }
 .full-width_site {
-	height: 85%;
-    margin-top: 9%;
+	height: 82%;
+    margin-top: 8%;
     overflow: auto;
 }
 .article_heading {
@@ -722,12 +729,19 @@ input[type="submit"] {
 /*.site-content {
 	padding-top: 20px;
 }*/
-.tam {
+/*.tam {
 	display: none;
 }
 .fre {
 	display: none;
 }
+*/
 .article_description_language a {
 	visibility: hidden;
+}
+.display_none_lang {
+	display: none;
+}
+.display_not_none_lang {
+	display: block;
 }

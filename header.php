@@ -9,20 +9,13 @@
  */
 ?>
 <!DOCTYPE html>
-<!--[if IE 7]>
-<html class="ie ie7" <?php language_attributes(); ?>>
-<![endif]-->
-<!--[if IE 8]>
-<html class="ie ie8" <?php language_attributes(); ?>>
-<![endif]-->
-<!--[if !(IE 7) | !(IE 8) ]><!-->
 <html <?php language_attributes(); ?>>
 <!--<![endif]-->
 	<head>
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<meta name="viewport" content="width=device-width">
-		<!-- <title><?php wp_title( '|', true, 'right' ); ?></title> -->
-		<title> <?php bloginfo( 'name' ); ?> - <?php echo bloginfo( 'description' ); ?> </title>
+		<title><?php bloginfo( 'name' ); wp_title(); ?></title>
+		<!-- <title> <?php bloginfo( 'name' ); ?> - <?php echo bloginfo( 'description' ); ?> </title> -->
 		<!---css -->
 		<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>">
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -50,7 +43,9 @@
 										endif;
 									?>	
 		  				  		</div>
+		  				  		<div class="site-tite">
 						  		<span class="mobile_title visible-xs none_language"><?php bloginfo( 'name' ); ?></span>	
+						  		</div>
 				      		</div>
 				      		<div class="navbar-brand navbar-right language_select">
 			      				<select class="languages language_convet_section" id="language_convet_section">
@@ -59,7 +54,7 @@
 						      		<option value="tamil">TAMIL</option>
 			      				</select>
 				      		</div>
-				      		<div class="navbar-collapse collapse">
+				      		<div class="navbar-collapse collapse site-title">
 		  			  			<h3 class="header_title hidden-xs none_language"><?php bloginfo( 'name' ); ?></h3>	  
 				  			  	<?php
 				  			  		if ( has_nav_menu( 'primary' ) ) : 
@@ -82,8 +77,7 @@
 			 	  		<div class="title2 col-lg-12">
 				 	  	    <div class="col-xs-3 col-sm-3 col-md-4 col-lg-4">	
 				 		   	<?php if ( get_header_image() ) : ?>
-				 		   		<!-- <img src="<?php bloginfo('stylesheet_directory');?>/images/building.png" alt="Building_picture" class="fr building_img" /> -->
-				 		   		<img src=<?php echo header_image(); ?>" alt="Building_picture" class="fr building_img" />
+				 		   		<img src="<?php echo header_image(); ?>" alt="Building_picture" class="fr building_img" />
 							<?php else: ?>
 				 		   	 	<img src="<?php bloginfo('stylesheet_directory');?>/images/building.png" alt="Building_picture" class="fr building_img" />
 				 		    <?php endif; ?>

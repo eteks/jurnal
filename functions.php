@@ -42,25 +42,14 @@ add_theme_support( 'custom-logo', array(
 		'flex-height' => true,
 ) );
 
-// add_theme_support( 'custom-header', apply_filters( 'test', array(
-// 	'default-text-color'     => $default_text_color,
-// 	'width'                  => 200,
-// 	'height'                 => 200,
-// 	'flex-height'            => false,
-// 	'wp-head-callback'       => 'twentysixteen_header_style',
-// 	'name'       => 'test',
-// ) ) );
-
+//  To change header logo
 $args = array(
-	'header-text'            => true,
-	'default-text-color'     => 'ffffff',
 	'width'                  => 200,
 	'height'                 => 200,
 	'flex-height'            => true,
-	'flex-width'             => true,
+	'flex-width'             => true
 );
 add_theme_support( 'custom-header', $args );
-
 
 
 //admin page
@@ -96,6 +85,84 @@ jQuery(document).ready(function($){
 <?php
 }
 
+
+
+
+add_action( 'category_edit_form_fields', 'extra_edit_tax_fields', 10, 2 );
+add_action( 'category_add_form_fields', 'extra_edit_tax_fields', 10, 2 );
+
+
+function extra_edit_tax_fields($tag) {
+    // Check for existing taxonomy meta for term ID.
+    $t_id = $tag->term_id;
+    echo  $t_id;
+    $term_meta = get_option( "taxonomy_$t_id" ); ?>
+    <tr class="form-field custom-field">
+        <th scope="row" valign="top">
+            <label for="cat_name_eng"><?php _e( 'Category Name in English' ); ?></label></th>
+            <td>
+                <input type="text"  style="width:95%;" name="term_meta[cat_name_eng]" id="term_meta[cat_name_eng]" value="<?php echo esc_attr( $term_meta['cat_name_eng'] ) ? esc_attr( $term_meta['cat_name_eng'] ) : ''; ?>">
+                <p class="description"><?php _e( 'To enter category name in english' ); ?></p>
+            </td>
+        </th>
+    </tr>
+    <tr class="form-field custom-field">
+         <th scope="row" valign="top">
+            <label for="cat_name_tam"><?php _e( 'Category Name in Tamil' ); ?></label></th>
+            <td>
+                <input type="text" style="width:95%;" name="term_meta[cat_name_tam]" id="term_meta[cat_name_tam]" value="<?php echo esc_attr( $term_meta['cat_name_tam'] ) ? esc_attr( $term_meta['cat_name_tam'] ) : ''; ?>" >
+                <p class="description"><?php _e( 'To enter category name in tamil' ); ?></p>
+            </td>
+        </th>
+    </tr>
+    <tr class="form-field custom-field">
+         <th scope="row" valign="top">
+            <label for="cat_page"><?php _e( 'Page Number' ); ?></label></th>
+            <td>
+                <input type="text" style="width:95%;" name="term_meta[cat_page_no]" id="term_meta[cat_page_no]" value="<?php echo esc_attr( $term_meta['cat_page_no'] ) ? esc_attr( $term_meta['cat_page_no'] ) : ''; ?>" >
+                <p class="description"><?php _e( 'To enter category page number' ); ?></p>
+            </td>
+        </th>
+    </tr>
+
+
+<?php
+}
+
+// Save extra taxonomy fields callback function.
+function save_extra_taxonomy_fields( $term_id ) {
+    if ( isset( $_POST['term_meta'] ) ) {
+        $t_id = $term_id;
+        $term_meta = get_option( "taxonomy_$t_id" );
+        $cat_keys = array_keys( $_POST['term_meta'] );
+        foreach ( $cat_keys as $key ) {
+            if ( isset ( $_POST['term_meta'][$key] ) ) {
+                $term_meta[$key] = $_POST['term_meta'][$key];
+            }
+        }
+        // Save the option array.
+        update_option( "taxonomy_$t_id", $term_meta );
+    }
+}   
+add_action( 'edited_category', 'save_extra_taxonomy_fields', 10, 2 );   
+add_action( 'created_category', 'save_extra_taxonomy_fields', 10, 2 );   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Added by muthu for adding extra fields in category
 
 remove_filter( 'pre_term_description', 'wp_filter_kses' );
@@ -120,7 +187,6 @@ function cat_description($tag)
 <?php
 }
 
-
 add_action('admin_head', 'remove_default_category_description');
 function remove_default_category_description()
 {
@@ -137,16 +203,6 @@ function remove_default_category_description()
     <?php
     }
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
