@@ -1,3 +1,13 @@
+<?php
+/**
+ * The template for displaying the footer
+ *
+ * @package WordPress
+ * @link http://www.revuehistoriquedepondichery.org/demo/
+ * @subpackage journal window
+ * @since journal Window 1.0
+ */
+?>
 			<section>
 				<div class="container">
 					<div class="row">

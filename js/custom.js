@@ -24,22 +24,36 @@ $('.active_section').each(function() {
 
 $('.custom_logo_link a').addClass('breadcrumb_anger');
 $('.custom_logo_link a').attr('data-active','1');
+// $('.custom_logo_link a').attr('data-active','11');
+
 
 // To add restriction
 $('.article_content_section').addClass('article_content_section_height');
-$('.article_content_section p:first-child a').attr('id','download_pdf_link');
-$('#download_pdf_link').css('display','none');
-$('#message_box_popup').prop('cols','30');
-$('#message_box_popup').prop('rows','5');
+// $('.article_content_section p:first-child a').attr('id','download_pdf_link');
+$('#download_pdf_link').css('visibility','hidden');
+// $('#message_box_popup').prop('cols','30');
+// $('#message_box_popup').prop('rows','5');
+
+
+
+
 
 // To download pdf
 $('#download_article_popup').click(function() {
+  var href_link= $('.article_description_language a').attr('href');
+  $('#download_pdf_link').attr('href',href_link);
   setTimeout(function(){
   if(!$('.wpcf7-form').hasClass('invalid') && !$('.wpcf7-form').hasClass('spam')) {
     $('a#download_pdf_link')[0].click();
   }
-}, 3000);
+}, 5000);
 });
+
+
+
+
+
+
 
 // Active class for navigation
 $('.active_section li a, .breadcrumb_anger').on('click',function() {
@@ -58,4 +72,28 @@ else {
 }
 // localStorage.removeItem('selectedolditem');
 
+
+    // $('tam').css('display','none');
+    // $('fre').css('display','none');
+$('.language_convet_section').on('change',function(){
+  var selected_value = $(this).val();
+  if(selected_value=='tamil') {
+    $('.tam').fadeIn(1000);
+    $('.eng').css('display','none');
+    $('.fre').css('display','none');
+  }
+  else if(selected_value=='french') {
+    $('.fre').fadeIn(1000);
+    $('.eng').css('display','none');
+    $('.tam').css('display','none');
+  }
+  else {
+    $('.eng').fadeIn(1000);
+    $('.tam').css('display','none');
+    $('.fre').css('display','none');
+  }
+
 });
+
+
+}); // Document ready end

@@ -1,0 +1,11 @@
+
+/* To restrict description height in category list of admin page */
+
+.wp-list-table .description p {
+	height: 30px;
+    overflow: auto;
+}
+.wp-list-table .description div {
+	height: 60px;
+    overflow: auto;
+}

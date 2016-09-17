@@ -1,9 +1,28 @@
-<!Doctype html>
-<html lang="en-US">
+<?php
+/**
+ * The template for displaying the header
+ *
+ * @package WordPress
+ * @link http://www.revuehistoriquedepondichery.org/demo/
+ * @subpackage journal window
+ * @since journal Window 1.0
+ */
+?>
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7" <?php language_attributes(); ?>>
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" <?php language_attributes(); ?>>
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8) ]><!-->
+<html <?php language_attributes(); ?>>
+<!--<![endif]-->
 	<head>
+		<meta charset="<?php bloginfo( 'charset' ); ?>">
+		<meta name="viewport" content="width=device-width">
+		<!-- <title><?php wp_title( '|', true, 'right' ); ?></title> -->
 		<title> <?php bloginfo( 'name' ); ?> - <?php echo bloginfo( 'description' ); ?> </title>
-	 	<meta charset="utf-8">
-	 	<meta name="viewport" content="width=device-width, intial-scale=1.0, maximum-scale=3.0, user-scalable=no">
 		<!---css -->
 		<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>">
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -25,20 +44,20 @@
 								 	<span class="icon-bar"></span> 
 								</button>
 						  		<div class="navbar-brand navbar-left custom_logo_link">
-						  			 <?php
-						  			 	if ( function_exists( 'the_custom_logo' ) ) {
+						  			<?php
+						  			 	if ( function_exists( 'the_custom_logo' ) ) :
 										    the_custom_logo();
-										}
-
+										endif;
 									?>	
 		  				  		</div>
 						  		<span class="mobile_title visible-xs none_language"><?php bloginfo( 'name' ); ?></span>	
 				      		</div>
 				      		<div class="navbar-brand navbar-right language_select">
-			      				<!-- <select class="languages" >
-						      		<option value="ENGLISH" selected>ENGLISH</option>
-						      		<option value="FRENCH">FRENCH</option>
-			      				</select> -->
+			      				<select class="languages language_convet_section" id="language_convet_section">
+						      		<option value="english" selected>ENGLISH</option>
+						      		<option value="french">FRENCH</option>
+						      		<option value="tamil">TAMIL</option>
+			      				</select>
 				      		</div>
 				      		<div class="navbar-collapse collapse">
 		  			  			<h3 class="header_title hidden-xs none_language"><?php bloginfo( 'name' ); ?></h3>	  
@@ -62,13 +81,25 @@
 		 			<div class="row">
 			 	  		<div class="title2 col-lg-12">
 				 	  	    <div class="col-xs-3 col-sm-3 col-md-4 col-lg-4">	
+				 		   	<?php if ( get_header_image() ) : ?>
+				 		   		<!-- <img src="<?php bloginfo('stylesheet_directory');?>/images/building.png" alt="Building_picture" class="fr building_img" /> -->
+				 		   		<img src=<?php echo header_image(); ?>" alt="Building_picture" class="fr building_img" />
+							<?php else: ?>
 				 		   	 	<img src="<?php bloginfo('stylesheet_directory');?>/images/building.png" alt="Building_picture" class="fr building_img" />
+				 		    <?php endif; ?>
 				 		    </div>
 				 		    <div class="col-xs-9 col-sm-9 col-md-8 col-lg-8 title_nopad">	
-						   		<p class="fl">Researches into the History & Culture of French and Indian Pondicherry </p>
+						   		<p class="fl"> <?php echo bloginfo( 'description' ); ?> </p>
 						    </div>
 					   		<div class="clearfix"> </div>
 		 		  		</div>	
 		 			</div>
 		 		</div>	
 		  	</section>	
+
+
+
+
+
+		
+					

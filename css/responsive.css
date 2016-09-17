@@ -22,6 +22,7 @@
 		font-size: 17px;
 		font-family: Roboto;
 		margin-top: 10px;
+		padding: 0 19% 0 29%;
 		font-weight: bold;
 		text-align: center;
 	}	
@@ -171,7 +172,7 @@
 	    
 /* INDEX */		
 @media (max-width: 480px){
-	.frame_title {
+	/*.frame_title {
 	    color: #755e58;
 	    font-family: Times New Roman;
 	    font-size: 18px;
@@ -180,7 +181,14 @@
 	    position: absolute;
 	    top: 115px;
 	    width: 95%;
-    }
+    }*/
+    /*commented by siva*/
+    .frame_title {
+	    color: #755e58;
+	    font-family: Times New Roman;
+	    font-size: 18px;
+	    font-weight: bold;
+	}
     .building_pic{
     	width: 60px;
     }
@@ -920,4 +928,16 @@
 #download_article_popup{
 	width: 44% !important;
 }
+}
+
+
+/* Added by siva*/
+@media (max-width: 480px){
+.full-width_site {
+    height: 85%;
+    margin-top: 26%;
+    overflow: auto;
+}
+.navbar {
+	margin : 0px;
 }

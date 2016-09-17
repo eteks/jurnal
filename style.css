@@ -1,12 +1,16 @@
+
 /*
-Theme Name: journal
-Theme URI: https://journal.com/journal/
+Theme Name: New-Journal
+Theme URI: http://www.revuehistoriquedepondichery.org/demo/
 Author: the Etekchnoservices team
 Author URI: https://etekchnoservices.com/
-Version: 1.0
-Tags: black, blue, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, featured-images, post-formats
+Version: 2.0
+Tags: responsive-layout, custom-background, custom-header, custom-menu, post-formats
 Text Domain: journal
 */
+
+
+
 body{
 	font-family: Roboto;
 }
@@ -107,7 +111,7 @@ header{
 }    
 .title2{
 	text-align: center;
-	margin: 20px auto;
+	margin: 20px auto 3px;
 }
 .title2 p{
 	font-size: 21px;
@@ -119,7 +123,7 @@ header{
 	background-color: #e4e3e3;
 	width: 100%;
 }
-#frame {
+/*#frame {
 	left: 0px;
     position: relative;
     top: 0px;
@@ -127,16 +131,28 @@ header{
 	width: 100%; 
 	background: rgba(0,0,0,0) url(images/frame1.png) no-repeat scroll center;
 	background-size: 100% 100%;
+}*/
+/*commented by siva*/
+#frame {
+	height: 1110px;
+	width: 100%;
+	margin: 0;
+	background: rgba(0,0,0,0) url(images/frame1.png) no-repeat scroll center;
+	background-size: 100% 100%;
 }
-.frame_text{
+/*.frame_text{
 	position: relative;
 	color : #614a42;
 	height: 1100px;
- }
+}*/
+/*commented by siva*/
+.frame_text{
+	color : #614a42;
+}
 h1,.frame_footer{
 	text-align: center;
 }
-.frame_title{
+/*.frame_title{
 	font-family: Times New Roman;
 	font-size: 45px;
 	color: #755e58;
@@ -145,11 +161,23 @@ h1,.frame_footer{
 	position: absolute;
 	left: 220px;
     top: 95px;
+}*/
+/*commented by siva*/
+.frame_title{
+	font-family: Times New Roman;
+	font-size: 45px;
+	color: #755e58;
+	font-weight: bold;
 }
-.volume{
+/*.volume{
     position: absolute;
     left: 0px;
     top: 315px;
+    padding: 10px;
+    margin: 10px;
+}*/ 
+/*commented by siva*/
+.volume{
     padding: 10px;
     margin: 10px;
 }
@@ -174,10 +202,16 @@ h1,.frame_footer{
 .fa-angle-right{
 	margin: 0px 5px;
 }
-.frame_footer{
+/*.frame_footer{
 	bottom: 100px;
     font-size: 18px;
     position: absolute !important;
+}*/
+/*commented by siva*/
+.frame_footer{
+    font-size: 18px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 /* Footer */
 .menu_footer a{
@@ -223,16 +257,25 @@ h1,.frame_footer{
 .breadcrumb > li + li:before{
 	padding:0;
 }
-.breadcrumb-w{
+/*.breadcrumb-w{
 	position: relative;
-	 z-index: 9999;
-}
-.breadcrumb {
+	z-index: 9999;
+}*/
+/*commented by siva*/
+/*.breadcrumb {
 	position: absolute;
 	right: 80px;
 	top: 80px;
 	margin: 20px;
 	padding: 10px;
+}*/
+/*commented by siva*/
+.breadcrumb {
+	margin: 20px;
+	padding: 10px;
+}
+.breadcrumb-align {
+	float: right;
 }
 .breadcrumb > li + li::before {
     color: #614a42 !important;
@@ -240,33 +283,54 @@ h1,.frame_footer{
     padding: 0 5px !important;
 }
 /* Content table */
-.content_subtitle{
+/*.content_subtitle{
 	font-family: Times New Roman;
 	font-size: 36px;
 	color: #614a42;
 	position: absolute;
 	left: 365px;
     top: 200px;
+}*/
+/*commented by siva*/
+.content_subtitle{
+	font-family: Times New Roman;
+	font-size: 36px;
+	color: #614a42;
 }
-.volume_number{
+/*.volume_number{
 	font-family: Times New Roman;
 	font-size: 28px;
 	color: #755e58;
 	position: absolute;
-	/*left: 480px;*/
     top: 260px;	
     width : 100%;
     text-align: center;
+}*/
+/*commented by siva*/
+.volume_number{
+	font-family: Times New Roman;
+	font-size: 28px;
+	color: #755e58;
+    text-align: center;
 }
-.page_content{
+/*.page_content{
 	color: #614a42;
 	font-size: 24px;
 	position: absolute;
 	left: 285px;
     top: 340px;
+}*/
+/*commented by siva*/
+.page_content{
+	color: #614a42;
+	font-size: 24px;
+	margin-top: 40px;
 }
 .page_content table{
 	width: 580px;
+}
+.table_content {
+	margin: 0 auto;
 }
 .table_content td{
 	padding: 17px 0 20px 10px;
@@ -413,7 +477,7 @@ input {
     max-width: 350px !important;
     width : 100% !important;
 }
-.download {
+/*.download {
     background-color: #614a42;
     border-radius: 15px;
     color: #fff;
@@ -423,6 +487,14 @@ input {
     position: relative;
     text-align: center;
     width: 30%;
+}*/
+/*commented by siva*/
+.download {
+    background-color: #614a42;
+    border-radius: 15px;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 25px;
 }
 form {
 	text-align : center;
@@ -446,10 +518,15 @@ input[type="submit"] {
 	height: 750px;
 	overflow: auto;
 }
-.sg-show-popup {
+/*.sg-show-popup {
 	bottom: 20px;
-    	position: absolute;
-    	width: 88%;
+    position: absolute;
+    width: 88%;
+}*/
+/*commented by siva*/
+.popup_article {
+    padding-top: 30px;
+    text-align: center;
 }
 .contact_us_form form {
 	text-align: left !important;
@@ -540,8 +617,9 @@ input[type="submit"] {
     margin: 0 auto;
     width: 57%;
 }
-
-
+.contact_captcha div{
+    margin: 0 auto;
+}
 
 /* Responsive */
 
@@ -630,3 +708,33 @@ input[type="submit"] {
 	}
 }
  
+.not_found_error h1 {
+	font-size: 150px;
+    text-align: center;
+    color: #614a42;
+}
+.not_found_error h2 {
+	font-size: 80px;
+    text-align: center;
+    color: #614a42;
+}
+.full-width_site {
+	height: 85%;
+    margin-top: 9%;
+    overflow: auto;
+}
+.article_heading {
+	margin-bottom: 30px;
+}
+/*.site-content {
+	padding-top: 20px;
+}*/
+.tam {
+	display: none;
+}
+.fre {
+	display: none;
+}
+.article_description_language a {
+	visibility: hidden;
+}
