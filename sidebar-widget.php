@@ -23,11 +23,9 @@
 		<div class="column-size-3">		
 			<div class="widget-area">
 			<?php if ( is_active_sidebar( 'column-1'.'-'.$journal_curr_slug ) ) : ?>
-					<p> dynamic </p>
 					<?php dynamic_sidebar( 'column-1'.'-'.$journal_curr_slug ); ?>
 
 			<?php else : ?>
-					<p> static </p>
 					<?php do_action( $hook_name1 ); ?>
 			
 			<?php endif; ?>
@@ -40,11 +38,9 @@
 		<div class="column-size-3">		
 			<div class="widget-area">
 			<?php if ( is_active_sidebar( 'column-2'.'-'.$journal_curr_slug ) ) : ?>
-					<p> dynamic </p>
 					<?php dynamic_sidebar( 'column-2'.'-'.$journal_curr_slug ); ?>
 
 			<?php else : ?>
-					<p> static </p>
 					<?php do_action( $hook_name2 ); ?>
 			
 			<?php endif; ?>

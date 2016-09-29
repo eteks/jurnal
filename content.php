@@ -49,7 +49,6 @@
 					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">	
 						<?php
 							$t_id = $value->term_id;
-							$term_meta = get_option( "taxonomy_$t_id" );
 							$taxonomy_image_url = get_option('z_taxonomy_image'.$t_id);
 							if(!empty($taxonomy_image_url)) :
 						?>	
@@ -63,9 +62,9 @@
 						?>
 	 		   	 	</div>
 	 		   		<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 no_pad ">
-	 		   			<h4 class="fl fre"> <?php echo $value->name; ?> </h4>
-	 		   			<h4 class="fl eng"> <?php echo $term_meta['cat_name_eng']; ?> </h4>
-			   			<h4 class="fl tam"> <?php echo $term_meta['cat_name_tam']; ?> </h4>
+	 		   			<h4 class="fl"> 
+	 		   				<span class=""> <?php echo $value->name; ?> </span>
+	 		   			</h4>
 			   		</div>
 			   		<?php
 			   			$start_value++;
@@ -74,7 +73,7 @@
 			   		?>
 			   		<div class="col-xs-8 col-sm-6 col-md-8 col-lg-8 no_pad ">	
 			   			<h5 class="fl">
-			   				<a href="sections?post-type=<?php echo $slug_name; ?>"> <span class="eng"> Read It </span> <span class="fre"> lis le </span> <span class="tam"> இதை படிக்க </span>  <i class="fa fa-angle-right" aria-hidden="true"> </i></a>
+			   				<a href="<?php echo get_home_url(); ?>/books/<?php echo $slug_name; ?>"> <span class=""> Read It </span> <i class="fa fa-angle-right" aria-hidden="true"> </i></a>
 			   			</h5>
 			   		</div>
 			   		<div class="clearfix"> </div>
@@ -97,29 +96,9 @@
 	?>
 		<div class="frame_text">
 			  	<!--breadcrumb-->
-		  	<div class="breadcrumb-w hidden-xs breadcrumb-align">
-				<ul class="breadcrumb">
-					<li>
-						<a data-active="1" class="breadcrumb_anger" href="home">
-						<span class="eng"> Home page </span>
-						<span class="fre"> Page d'accueil </span>
-						<span class="tam"> முகப்பு பக்கம் </span>
-						</a>
-					</li>
-					<li>
-						<span class="eng"> List Sections </span>
-						<span class="fre"> Liste Sections </span>
-						<span class="tam"> பட்டியல் பிரிவுகள்</span>
-					</li>
-				</ul>
-			</div>
-			<div class="cb"> </div>
 			<?php
-				the_content(); 
-			?>
-			<?php
-			if(isset($_GET['post-type']) && !empty($_GET['post-type'])) :	
-			$slug = $_GET['post-type'];
+			if(get_query_var('vol-name')!=null) :	
+			$slug = get_query_var('vol-name');
 			$current_slug = $slug;
 			$cat = get_category_by_slug($slug);
 			// print_r($cat);
@@ -130,54 +109,90 @@
 		      	'parent' => $cat_id,
 			);
 			$categories = get_categories($args);
-			$term_meta = get_option( "taxonomy_$cat_id" );
 			$total_count = count($categories);
 			$total_page_count = absint(($total_count / $limit)+1); 
 
 			?>
-			<h5 class="volume_number fre"> <?php echo $cat->name; ?> </h5>
-			<h5 class="volume_number eng"> <?php echo $term_meta['cat_name_eng']; ?> </h5>
-		  	<h5 class="volume_number tam"> <?php echo $term_meta['cat_name_tam']; ?> </h5>
-		  	<div class="page_content">
-		  	 	<table class="table_content none_language">
-		  	 		<?php
-		  	 		foreach ($categories as $value) :
-					?>
-					<?php
-						if($default_value >= $default_start_value && $start_value <= $end_value) :	
-					?>
-						<tr>
-							<td> <?php
-								$t_id = $value->term_id;
-								$term_meta = get_option( "taxonomy_$t_id" );
-								$start_value++;
-					   			$slug_name = $value->slug;
-					   			// echo $slug_name;
-					   		?> </td>
-
-
-			  	 			<td class="td1 fre"><a href="articles?post-type=<?php echo $slug_name; ?>"> <?php echo $value->name; ?> </a></td>
-			  	 			<td class="td1 eng"><a href="articles?post-type=<?php echo $slug_name; ?>"> <?php echo $term_meta['cat_name_eng']; ?> </a></td>
-			  	 			<td class="td1 tam"><a href="articles?post-type=<?php echo $slug_name; ?>"> <?php echo $term_meta['cat_name_tam']; ?> </a></td>
-			  	 			<td class="td2"> <?php echo $term_meta['cat_page_no']; ?> </td>
-			  	 		</tr>
-			  	 	<?php 
-					else:
-						$default_value++;	
-					endif;
-					?>
-					<?php 
-					endforeach; ?>
-				</table> 
+			<div class="breadcrumb-w hidden-xs breadcrumb-align">
+				<ul class="breadcrumb">
+					<li>
+						<a data-active="1" class="breadcrumb_anger" href="<?php echo get_home_url(); ?>">
+							<span class=""> Home </span>
+						</a>
+					</li>
+					<li>
+						<a data-active="1" class="breadcrumb_anger" href="<?php echo get_home_url(); ?>/books/<?php echo $slug; ?>">
+							<span class=""> <?php echo $cat->name; ?> </span>
+						</a>
+					</li>
+					<li>
+						<span class=""> Sections </span>
+					</li>
+				</ul>
 			</div>
-			<?php 
-				wp_custom_pagination($page_val,$total_page_count,$current_slug);
+			<div class="cb"> </div>
+			<?php
+				the_content(); 
 			?>
-			<?php else:
+			<h5 class="volume_number">
+				<span class=""> <?php echo $cat->name; ?> </span>
+			</h5>
+
+				<?php if($total_count >= 1) : ?>
+			  	<div class="page_content">
+			  	 	<table class="table_content none_language">
+			  	 		<?php
+			  	 		foreach ($categories as $value) :
+						?>
+						<?php
+							if($default_value >= $default_start_value && $start_value <= $end_value) :	
+						?>
+							<tr>
+								<td> <?php
+									$sections = explode('-',$value->name);
+									$start_value++;
+						   			$slug_name = $value->slug;
+						   			// echo $slug_name;
+						   		?> </td>
+				  	 			<td class="td1">
+				  	 				<a href="<?php echo get_home_url(); ?>/books/<?php echo $current_slug; ?>/<?php echo $slug_name; ?>"> 
+				  	 					<span class=""> <?php echo $sections[0]; ?> </span>
+				  	 				</a>
+				  	 			</td>
+				  	 			<td class="td2"> <?php echo $sections[1]; ?> </td>
+				  	 		</tr>
+					  	 	<?php 
+							else:
+								$default_value++;	
+							endif;
+							?>
+						<?php 
+						endforeach; ?>
+					</table> 
+				</div>
+				<?php 
+					wp_custom_pagination($page_val,$total_page_count,$current_slug);
+				?>
+				<?php 
+				else :
+				?>
+					<div class="page_content">
+						<p> No sections found </p>
+						<div class="col-sm-12 col-md-12 col-lg-12 frame_footer"> 
+    						<span>HISTORICAL SOCIETY OF PONDICHERRY</span>
+        				</div>
+    				</div>
+				<?php
+				endif;
+				?>
+			<?php 
+			else:
 			?>
 			<div class="page_content">
 				<p> No sections found </p>
-				<span>HISTORICAL SOCIETY OF PONDICHERRY</span>
+				<div class="col-sm-12 col-md-12 col-lg-12 frame_footer"> 
+					<span>HISTORICAL SOCIETY OF PONDICHERRY</span>
+				</div>
 			</div>
 			<?php
 			endif;
@@ -186,50 +201,48 @@
 
 	<?php
 	elseif($parent_slug == 'articles'): 
-		if(isset($_GET['post-type']) && !empty($_GET['post-type'])) :
-		$slug = $_GET['post-type'];
+		if(get_query_var('sec-name')!=null) :
+		$slug = get_query_var('sec-name');
 		$current_slug = $slug;
 		$cat = get_category_by_slug($slug);
 		// print_r($cat);
 		$cat_id = $cat->term_id;
-		$term_meta = get_option( "taxonomy_$cat_id");
 		$cat_parent_id = $cat->category_parent;
 		$parent_category = get_category($cat_parent_id);
 		$cat_parent_name = $parent_category->slug;
-		$sec_name = $cat->name;
+		$section_name = explode('-',$cat->name);
+
 		$args = array(
-	    	'orderby' => 'id',
-	      	'hide_empty'=> 0,
-	      	'parent' => $cat_id,
+			'category' => $cat_id,
+	 		'order'    => 'ASC'
 		);
-		$categories = get_categories($args);
+		$categories = get_posts($args);
+		// print_r($categories);
 		$total_count = count($categories);
 		$total_page_count = absint(($total_count / $limit)+1); 
 	?>
+
 		<div class="frame_text">
 			<!--breadcrumb-->
 			<div class="breadcrumb-w hidden-xs breadcrumb-align">
 				<ul class="breadcrumb">
 					<li>
-						<a data-active="1" class="breadcrumb_anger" href="home">
-						<span class="eng"> Home page </span>
-						<span class="fre"> Page d'accueil </span>
-						<span class="tam"> முகப்பு பக்கம் </span>
+						<a data-active="1" class="breadcrumb_anger" href="<?php echo get_home_url(); ?>">
+						<span class=""> Home </span>
 						</a>
 					</li>
 					<li>
-						<span class="eng"><a data-active="1" class="breadcrumb_anger" href="sections?post-type=<?php echo $cat_parent_name; ?>"> Sections </a>
-						</span>
-						<span class="fre"><a data-active="1" class="breadcrumb_anger" href="sections?post-type=<?php echo $cat_parent_name; ?>"> Sections </a>
-						</span>
-						<span class="tam"><a data-active="1" class="breadcrumb_anger" href="sections?post-type=<?php echo $cat_parent_name; ?>"> பிரிவுகள் </a>
-						</span>
-						
+						<a data-active="1" class="breadcrumb_anger" href="<?php echo get_home_url(); ?>/books/<?php echo $cat_parent_name; ?>"> 
+							<span class=""> <?php echo  $parent_category->name; ?> </span>
+						</a>
 					</li>
 					<li>
-						<span class="eng"> List Articles </span>
-						<span class="fre"> Liste des articles </span>
-						<span class="tam"> பட்டியல் கட்டுரைகள் </span>
+						<a data-active="1" class="breadcrumb_anger" href="<?php echo get_home_url(); ?>/books/<?php echo $cat_parent_name; ?>/<?php echo $slug; ?>"> 
+							<span class=""> <?php echo $section_name[0]; ?> </span>
+						</a>
+					</li>
+					<li>
+						<span class=""> Articles </span>
 					</li>
 				</ul>
 			</div>
@@ -237,112 +250,129 @@
 			<?php
 				the_content(); 
 			?>
-			<h5 class="volume_number fre"> <?php echo $sec_name; ?> </h5>
-			<h5 class="volume_number eng"> <?php echo $term_meta['cat_name_eng']; ?> </h5>
-			<h5 class="volume_number tam"> <?php echo $term_meta['cat_name_tam']; ?> </h5>
-		  	<div class="page_content">
-		  	 	<table class="table_content">
-		  	  		<?php
-		  	 		foreach ($categories as $key => $value): 
+			<h5 class="volume_number"> 
+				<span class=""> <?php echo $section_name[0]; ?> </span>
+			</h5>
+				<?php  if($total_count >= 1) :  
+				?>
+			  	<div class="page_content">
+			  	 	<table class="table_content">
+			  	  		<?php
+			  	 		foreach ($categories as $key => $value): 
+							?>
+							<tr>
+								<?php 
+								if($default_value >= $default_start_value && $start_value <= $end_value) :
+								?>
+								<td> <?php
+									$article_name = explode('-',$value->post_title);
+									$start_value++;
+									$slug_name = $value->post_name;
+						   			// echo $slug_name;
+						   		?> </td>
+				  	 			<td class="td1"> 
+				  	 				<a href="<?php echo get_home_url(); ?>/books/<?php echo $cat_parent_name; ?>/<?php echo $current_slug; ?>/<?php echo $slug_name; ?>"> 	
+				  	 					<span class=""> <?php echo $article_name[0]; ?> </span>
+				  	 				</a>
+				  	 			</td>
+				  	 			<td class="td2"> <?php echo $article_name[1]; ?> </td>
+				  	 		</tr>
+				  	 			<?php 
+								else:
+									$default_value++;	
+								endif;
+								?>
+			  	 		<?php
+							endforeach;
 						?>
-						<tr>
-							<?php 
-							if($default_value >= $default_start_value && $start_value <= $end_value) :
-							?>
-							<td> <?php
-								$t_id = $value->term_id;
-								$term_meta = get_option( "taxonomy_$t_id" );	
-								$start_value++;
-					   			$slug_name = $value->slug;
-					   			// echo $slug_name;
-					   		?> </td>
-			  	 			<td class="td1 fre"> <a href="article-content?post-type=<?php echo $slug_name; ?>"> <?php echo $value->name; ?> </a> </td>
-			  	 			<td class="td1 eng"> <a href="article-content?post-type=<?php echo $slug_name; ?>"> <?php echo $term_meta['cat_name_eng']; ?> </a> </td>
-			  	 			<td class="td1 tam"> <a href="article-content?post-type=<?php echo $slug_name; ?>"> <?php echo $term_meta['cat_name_tam']; ?> </a> </td>
-			  	 			<td class="td2"> <?php echo $term_meta['cat_page_no']; ?> </td>
-			  	 		</tr>
-			  	 			<?php 
-							else:
-								$default_value++;	
-							endif;
-							?>
-		  	 		<?php
-						endforeach;
-					?>
-				</table> 
-			</div>
-        	<?php 
-				wp_custom_pagination($page_val,$total_page_count,$current_slug);
-			?>
+					</table> 
+				</div>
+	        	<?php 
+					wp_custom_pagination($page_val,$total_page_count,$current_slug);
+				?>
+				<?php
+				else :
+				?>
+				<div class="page_content">
+					<p> No articles found </p>
+					<div class="col-sm-12 col-md-12 col-lg-12 frame_footer"> 
+						<span>HISTORICAL SOCIETY OF PONDICHERRY</span>
+					</div>
+				</div>
+				<?php
+					endif;
+				?>
 		</div>
+		
 		<?php else:
 		?>
 		<div class="frame_text">
-			<p> No articles found </p>
-			<span>HISTORICAL SOCIETY OF PONDICHERRY</span>
+			<?php
+				the_content(); 
+			?>
+			<div class="page_content">
+				<p> No articles found </p>
+				<div class="col-sm-12 col-md-12 col-lg-12 frame_footer"> 
+					<span>HISTORICAL SOCIETY OF PONDICHERRY</span>
+				</div>
+			</div>
 		</div>
 		<?php endif;
 		?>
 
-
 	<?php
 	elseif($parent_slug == 'article-content'): 
-		if(isset($_GET['post-type']) && !empty($_GET['post-type'])) :
-		$slug = $_GET['post-type'];
-		$cat = get_category_by_slug($slug);
-		// print_r($cat);
-		$cat_id = $cat->term_id;
-		$term_meta = get_option( "taxonomy_$cat_id");
-		$sec_parent_id = $cat->category_parent;
-		$parent_section = get_category($sec_parent_id);
-		$cat_parent_id = $parent_section->category_parent;
-		$sec_parent_name = $parent_section->slug;
-		$parent_category = get_category($cat_parent_id);
-		$cat_parent_name = $parent_category->slug;
-		$art_name = $cat->name;
+		if(get_query_var('art-name')!=null) :
+		$slug = get_query_var('art-name');
+		$args = array(
+	    	'orderby' => 'ID',
+	     	'name' => $slug
+		);
+		$categories = get_posts($args);
+		// print_r($categories);
+		$article_name = explode('-',$categories[0]->post_title);
+		$article_id = $categories[0]->ID;
+		$sec_detail=get_the_category( $article_id );
+		// print_r($sec_detail);
+		$sec_name=explode("-",$sec_detail[0]->name);
+		$sec_slug = $sec_detail[0]->slug;
+		$parent_cat_id = $sec_detail[0]->category_parent;
+		$vol_detail = get_category($parent_cat_id);
+		$vol_slug = $vol_detail->slug;
 	?>			
 		<div class="frame_text">
 			<!--breadcrumb-->
 			<div class="breadcrumb-w hidden-xs breadcrumb-align">
 				<ul class="breadcrumb">
 					<li>
-						<a data-active="1" class="breadcrumb_anger" href="home">
-						<span class="fre"> Page d'accueil </span>
-						<span class="eng"> Home page </span>
-						<span class="tam"> முகப்பு பக்கம் </span>
-
+						<a data-active="1" class="breadcrumb_anger" href="<?php echo get_home_url(); ?>">
+							<span class=""> Home </span>
 						</a>
 					</li>
 					<li>
-						<a data-active="1" class="breadcrumb_anger" href="sections?post-type=<?php echo $cat_parent_name; ?>"> 
-						<span class="fre"> Sections </span>
-						<span class="eng"> Sections </span>
-						<span class="tam"> பிரிவுகள் </span>
+						<a data-active="1" class="breadcrumb_anger" href="<?php echo get_home_url(); ?>/books/<?php echo $vol_slug; ?>"> 
+							<span class=""> <?php echo $vol_detail->name; ?> </span>
 						</a>
 					</li>
 					<li>
-						<a data-active="1" class="breadcrumb_anger" href="articles?post-type=<?php echo $sec_parent_name; ?>"> 
-						<span class="fre"> Des articles </span>
-						<span class="eng"> Articles </span>
-						<span class="tam"> கட்டுரைகள் </span>
+						<a data-active="1" class="breadcrumb_anger" href="<?php echo get_home_url(); ?>/books/<?php echo $vol_slug; ?>/<?php echo $sec_slug; ?>"> 
+							<span class=""> <?php echo $sec_name[0]; ?> </span>
 						</a>
 					</li>
 					<li>
-						<span class="fre"> <?php echo $art_name; ?> </span>
-						<span class="eng"> <?php echo $term_meta['cat_name_eng']; ?> </span>
-						<span class="tam"> <?php echo $term_meta['cat_name_tam']; ?> </span>
+						<span class=""> <?php echo $article_name[0]; ?> </span>
 					</li>
 				</ul>
 			</div>
 			<div class="cb"> </div>
-			<h5 class="volume_number article_heading fre"> <?php echo $art_name; ?> </h5>
-			<h5 class="volume_number article_heading eng"> <?php echo $term_meta['cat_name_eng']; ?> </h5>
-			<h5 class="volume_number article_heading tam"> <?php echo $term_meta['cat_name_tam']; ?> </h5>
+			<h5 class="volume_number article_heading"> 
+				<span class=""> <?php echo $article_name[0]; ?> </span>
+			</h5>
 			<div class="article_description_language">
-				<?php echo $cat->description; ?>
+				<?php echo $categories[0]->post_content; ?>
 			</div>
-			<input type="hidden" value="<?php echo $art_name; ?>" id="download_article_name" />
-			<input type="hidden" value="<?php echo get_the_date(); ?>" id="download_article_date" />
+			<input type="hidden" value="<?php echo $article_name[0]; ?>" id="download_article_name" />
+			<input type="hidden" value="<?php echo date('l jS F Y'); ?>" id="download_article_date" />
 			<div class="popup_article">
 				<?php
 					the_content(); 

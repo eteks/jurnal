@@ -48,11 +48,16 @@
 						  		</div>
 				      		</div>
 				      		<div class="navbar-brand navbar-right language_select">
-			      				<select class="languages language_convet_section" id="language_convet_section">
+			      				<!-- <select class="languages language_convet_section" id="language_convet_section">
 						      		<option value="english" selected>ENGLISH</option>
 						      		<option value="french">FRENCH</option>
 						      		<option value="tamil">TAMIL</option>
-			      				</select>
+			      				</select> -->
+	      						<?php 
+	      							if ( is_active_sidebar( 'language-widgets' ) ) : 
+										dynamic_sidebar( 'language-widgets' ); 
+									endif;
+								?>
 				      		</div>
 				      		<div class="navbar-collapse collapse site-title">
 		  			  			<h3 class="header_title hidden-xs none_language"><?php bloginfo( 'name' ); ?></h3>	  

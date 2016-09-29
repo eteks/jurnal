@@ -18,7 +18,7 @@ get_header();
 			    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 full-width_site">
 					<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
 	  				</div>
- 					<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+ 					<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 content_section">
 						<?php if ( have_posts() ) : ?>
 						<div class="site-content"> 
 							<?php while ( have_posts() ) : the_post();

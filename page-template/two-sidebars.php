@@ -22,7 +22,7 @@ get_header();
 	  					<?php
 							get_sidebar();
 						?>
- 					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+ 					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 content_section">
 						<?php if ( have_posts() ) : ?>
 						<div class="site-content"> 
 							<?php while ( have_posts() ) : the_post();

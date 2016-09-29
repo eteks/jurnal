@@ -50,11 +50,6 @@ $('#download_article_popup').click(function() {
 });
 
 
-
-
-
-
-
 // Active class for navigation
 $('.active_section li a, .breadcrumb_anger').on('click',function() {
   var id = $(this).data("active");
@@ -73,7 +68,7 @@ if (selectedolditem != null) { // check selected navigation's datavalue is null 
   $('.active_section').find('li a[data-active='+selectedolditem+']').addClass('active'); // add activeclass for selected navigation based on its datavalue
 }
 else {
-  $('.active_section li:first a').addClass('active'); // add activeclass for homepage
+  $('.active_section li:first-child a').addClass('active'); // add activeclass for homepage
 }
 // localStorage.removeItem('selectedolditem');
 
@@ -88,70 +83,5 @@ else {
 
 
 
-
-var lang_value = localStorage.getItem('selectedlang');
-// alert(testtt);
-if(lang_value!=null && lang_value!="english") {
-  $("#language_convet_section option[value="+lang_value+"]").prop('selected','true');
-  if(lang_value=='tamil') {
-    $('.eng').addClass('display_none_lang');
-    $('.fre').addClass('display_none_lang');
-    $('.tam').fadeIn(1000);
-    $('.tam').removeClass('display_none_lang');
-  }
-  else  {
-    $('.eng').addClass('display_none_lang');
-    $('.tam').addClass('display_none_lang');
-    $('.fre').fadeIn(1000);
-    $('.fre').removeClass('display_none_lang');
-  }
-}
-else {
-  $("#language_convet_section option[value=english]").prop('selected','true');
-  $('.fre').addClass('display_none_lang');
-  $('.tam').addClass('display_none_lang');
-  $('.eng').fadeIn(1000);
-  $('.eng').removeClass('display_none_lang');
-}
-
-
-
-
-
-
-$('.language_convet_section').on('change',function(){
-  var selected_value = $(this).val();
-  if(selected_value=='tamil') {
-    var lang_val="tamil";
-    $('.eng').addClass('display_none_lang');
-    $('.fre').addClass('display_none_lang');
-    $('.tam').fadeIn(1000);
-    $('.tam').removeClass('display_none_lang');
-    $('.eng').css('display','none');
-    $('.fre').css('display','none');
-    localStorage.setItem("selectedlang", lang_val);
-  }
-  else if(selected_value=='french') {
-    var lang_val="french";
-    $('.eng').addClass('display_none_lang');
-    $('.tam').addClass('display_none_lang');
-    $('.fre').fadeIn(1000);
-    $('.fre').removeClass('display_none_lang');
-    $('.eng').css('display','none');
-    $('.tam').css('display','none');
-    localStorage.setItem("selectedlang", lang_val);
-  }
-  else {
-    var lang_val="english";
-    $('.fre').addClass('display_none_lang');
-    $('.tam').addClass('display_none_lang');
-    $('.eng').fadeIn(1000);
-    $('.eng').removeClass('display_none_lang');
-    $('.fre').css('display','none');
-    $('.tam').css('display','none');
-    localStorage.setItem("selectedlang", lang_val);
-  }
-
-});
 
 }); // Document ready end

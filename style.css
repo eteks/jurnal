@@ -1,6 +1,5 @@
-
 /*
-Theme Name: New-Journal
+Theme Name: Journal-V2
 Theme URI: http://www.revuehistoriquedepondichery.org/demo/
 Author: the Etekchnoservices team
 Author URI: https://etekchnoservices.com/
@@ -208,11 +207,6 @@ h1,.frame_footer{
     position: absolute !important;
 }*/
 /*commented by siva*/
-.frame_footer{
-    font-size: 18px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
 /* Footer */
 .menu_footer a{
 	text-decoration: none;
@@ -525,7 +519,7 @@ input[type="submit"] {
 }*/
 /*commented by siva*/
 .popup_article {
-    padding-top: 30px;
+    padding-top: 60px;
     text-align: center;
 }
 .contact_us_form form {
@@ -548,11 +542,11 @@ input[type="submit"] {
 /*Added by thangam*/
 
 #contact_form_text{
-     width: 350px;
+     width: 325px;
      resize:none;
 }
 #feedback_form_text{
-    width:350px;
+    width:325px;
     resize:none;
 }
 .contactus_form_label{
@@ -620,6 +614,19 @@ input[type="submit"] {
 .contact_captcha div{
     margin: 0 auto;
 }
+.navbar-right {
+   margin-right: 26px !important;
+}
+.navbar-left {
+  margin-left: 15px;
+}
+.site-content h1 {
+   padding-bottom: 20px;
+}
+#wpcf7-f255-p279-o1, #wpcf7-f254-p281-o1 {
+   margin-top: 20px;
+}
+
 
 /* Responsive */
 
@@ -719,7 +726,7 @@ input[type="submit"] {
     color: #614a42;
 }
 .full-width_site {
-	height: 82%;
+    height: 82%;
     margin-top: 8%;
     overflow: auto;
 }
@@ -738,10 +745,29 @@ input[type="submit"] {
 */
 .article_description_language a {
 	visibility: hidden;
+	display: none;
 }
 .display_none_lang {
 	display: none;
 }
 .display_not_none_lang {
 	display: block;
+}
+
+
+
+@media(min-width:768px) {
+.content_section {
+	min-height : 100% !important;
+}
+.site-content {
+	height: 90%;
+    position: absolute;
+    width: 100%;
+}
+.frame_footer{
+    font-size: 18px;
+    bottom: -10%;
+    position: absolute !important;
+}
 }

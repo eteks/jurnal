@@ -23,7 +23,6 @@
 					<?php dynamic_sidebar( 'left-sidebar-widgets' ); ?>
 
 				<?php else : ?>
-					<p> No static content </p>
 					<?php 
 						// do_action( $hook_name1 ); 
 					?>
