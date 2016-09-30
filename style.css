@@ -47,14 +47,14 @@ header{
 .active_section li {
 	display: inline-block !important;
 	width: auto !important;
-	margin: 20px 20px 0 0;
+	margin: 20px 15px 0px 12px;
 }
 
 .header_title{
 	font-size: 28px;
 	font-family: Myriad Pro;
 	font-weight: bold;
-	margin: 0px;
+	margin: -3px;
         text-align: center;
 }
 .nav-justified {
@@ -626,6 +626,9 @@ input[type="submit"] {
 #wpcf7-f255-p279-o1, #wpcf7-f254-p281-o1 {
    margin-top: 20px;
 }
+.article_description_language{
+   text-align: justify;
+}
 
 
 /* Responsive */
@@ -652,6 +655,7 @@ input[type="submit"] {
 	}
 	#message_box_popup {
 		width: 86%;
+                resize: none;
 	}
 	#contact_form_text {
     		resize: none;
@@ -701,9 +705,7 @@ input[type="submit"] {
       resize: none;
       width: 220px;
    }
-   
-        
- 	
+  	
 }
  
 @media(max-width:320px) {

@@ -1,4 +1,19 @@
 /* AKILA CODE */
+/* Fontsize for pages contact, feedback & terms & conditions in responsive */
+
+@media (max-width: 767px){
+	h1 {
+       font-size: 18px; 
+    }
+	h3 {
+       font-size: 14px; 
+    }
+    p{
+       font-size: 10px; 
+       text-align: justify;
+    }
+}
+
 /* HEADER */
 @media (max-width: 320px){
 	.title2 p {
@@ -35,18 +50,22 @@
 	form {
 		text-align: left;
 	}
+	.navbar-left {
+		margin-left: 0px;
+	}
 	.navbar-brand {
 	    float: left;
 	    font-size: 18px;
 	   /* height: 112px !important;*/
 	    line-height: 20px;
 	    padding: 0px ! important;
+	    width: 100px !important;
 	}
 	/*.navbar-toggle{
 		margin-top: 66px !important;
 	}*/
 	.nav-justified {
- 	   margin-left: 40px !important;
+ 	   margin-left: 0px !important;
        width: 65% !important;
 	}
 	.nav-justified > li {
@@ -123,7 +142,7 @@
 		font-size: 29px;
 	}
 	.language_select {
- 	   margin: 25px 0 0;
+ 	   margin: 45px 0 0;
 	}
 	.navbar-collapse {
     	margin-left: 55px;
@@ -219,6 +238,7 @@
         position: absolute;*/
         font-size: 12px;
         text-align: center;
+        margin-top: 65px;
     }
     .paginaion_section {
         margin-bottom: 20px;
@@ -302,20 +322,6 @@
 	.volume_number {
         left: 0px !important;
     }
-	.page_content table {
-    	width: 235px !important;
-	}
-	/*.page_content {
-       font-size: 10px !important;
-       left: -87px !important;
-       position: absolute;
-       top: 300px;
-    }*/
-	.table_content td {
-	    border-bottom: 1px solid #ccc;
-	    margin: 20px 10px;
-	    padding: 20px 45px !important;
-	}
 }
 @media(max-width: 480px){
 	/* Frame- table content */
@@ -346,6 +352,12 @@
 	    left: 10px;
 	    position: absolute !important;
 	}
+	.table_content td {
+		padding: 17px 0 20px;
+	}
+	.page_content table {
+        width: 185px !important;
+    }
 }
 @media (min-width: 481px) and (max-width: 767px){
 	.content_subtitle{
@@ -794,7 +806,16 @@
 	    position: absolute;
 	    text-align: center;
 	}
-}
+	/* Popup */
+	#sgcboxLoadedContent input {
+		width: 300px !important;
+		/*margin-left: 10px;*/
+	}
+	#message_box_popup {
+      /*margin-left: 10px;*/
+      width: 300px !important;
+    }
+}    
 @media (min-width: 481px) and (max-width: 767px){
 	.list-articles {
 	    left: 25px;
@@ -808,6 +829,8 @@
 	    padding: 5px 30px;
 	    position: absolute;
 	}
+	
+	
 }
 @media (min-width: 768px) and (max-width: 991px){
 	.article_title{
@@ -893,6 +916,13 @@
    		width: 100% !important;
 		height: 60px;
 	}
+	.widget-area-custom {
+        margin: 35px 0 0 15px;
+     }
+     /*popup*/
+    #sgcboxLoadedContent form {
+      margin: 15px;
+   }
 }	
 @media(min-width:768px)and(max-width:991px){
 	#contact_form_text {
@@ -909,6 +939,15 @@
     	resize: none;
     	width: 185px !important;
 	}
+
+	/* Article Download */
+	#sgcboxLoadedContent form {
+		margin:17px !important;
+	}
+
+	#sgcboxLoadedContent input {
+		width: 260px !important;
+	}
 }	
 
 @media (max-width: 767){
@@ -916,25 +955,8 @@
 	    width: 220px;
 	    resize:none;
 	}
-	
+		
 }	
-
-/* Fontsize for all pages in responsive */
-
-@media (max-width: 767){
-	h1 {
-	    font-size: 18px;
-	}
-	h3 {
-	    font-size: 14px;
-	}
-	p {
-	    font-size: 10px;
-	    line-height: 1.42857;
-	    text-align: justify;
-	}
-}
-
 
 /* Article -Popup */
 @media (max-width: 767px){
@@ -949,29 +971,42 @@
 	}
 
 }
-@media (max-width: 320px){
+@media (max-width: 480px) {
+ .download_header h2 {
+  	font-size: 16px;
+  	margin: 5px;
+  }
   #download_article_popup{
 	width: 44% !important;
   }
+  
+}
+@media (max-width: 320px){
+  #sgcboxLoadedContent input {
+		width: 260px !important;
+	}
+  #message_box_popup{
+  	   width: 260px !important;
+   }
 }
 
 
 /* Added by siva*/
 @media (max-width: 480px){
  .full-width_site {
-    height: 85%;
+    height: 78%;
     margin-top: 26%;
     overflow: auto;
  }
   .navbar {
 	 margin : 0px;
   }
-/* by Akila */
+/*by Akila 
 	.full-width_site {
 	    height: 82%;
 	    margin-top: 30%;
 	    overflow: auto;
-	}
+	}*/
 
 }
 @media(max-width: 767px){
